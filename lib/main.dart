@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'Login_Screen/LoginScreen.dart';
-import 'Register_Screen/RegisterScreen.dart';
+import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
+import 'package:vets_club/pages/Register_Screen/RegisterScreen.dart';
+
 
 void main() {
   runApp(const MyApp());
