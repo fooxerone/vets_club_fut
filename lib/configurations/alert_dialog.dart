@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:vets_club/configurations/themes.dart';
 
 showMessage(BuildContext context,
     {required DialogType dialogType,
@@ -10,7 +11,7 @@ showMessage(BuildContext context,
       context: context,
       animType: AnimType.scale,
       dialogType: dialogType,
-      title: 'HealthCare',
+      title: 'Vets Club Notes',
       desc: desc,
       btnOkOnPress:btnOkOnPress,
       descTextStyle: Theme.of(context).textTheme.bodyMedium,
@@ -18,7 +19,7 @@ showMessage(BuildContext context,
         fontSize: 18
       ),
    //   btnOkColor: MyTheme.lightOrange,
-      dialogBackgroundColor: Colors.white
+      dialogBackgroundColor: MyTheme.lightBlue
   )
     ..show();
 }
