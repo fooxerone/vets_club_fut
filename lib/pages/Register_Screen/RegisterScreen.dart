@@ -34,9 +34,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
             key: formKey,
             child: Column(
               children: [
-                Image.asset(
-                  'assets/vets_club.png',
-                  width: size.width * 0.5,
+                Hero(
+                  tag: 'logo',
+                  child: Image.asset(
+                    'assets/vets_club.png',
+                    width: size.width * 0.5,
+                  ),
                 ),
                 TextFieldWidget(
                     label: 'Full Name',
