@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vets_club/configurations/themes.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
 import 'package:vets_club/pages/Register_Screen/RegisterScreen.dart';
+import 'package:vets_club/pages/info_screen/information_screen.dart';
 
 
 void main() {
@@ -21,8 +22,9 @@ class MyApp extends StatelessWidget {
       routes: {
         LoginScreen.routeName: (_) => LoginScreen(),
         RegisterScreen.routeName: (_) => RegisterScreen(),
+        InfoScreen.routeName: (_) => InfoScreen(),
       },
-      initialRoute: LoginScreen.routeName,
+      initialRoute: InfoScreen.routeName,
     );
   }
 }

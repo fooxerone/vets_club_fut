@@ -18,7 +18,8 @@ class MyTheme{
           fontSize: 16,
           color: purple,
           fontWeight: FontWeight.bold
-        )
-    )
+        ),
+        bodyLarge: GoogleFonts.juliusSansOne(
+            fontSize: 24, color: purple, fontWeight: FontWeight.bold))
   );
 }
