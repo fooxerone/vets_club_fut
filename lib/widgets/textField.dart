@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vets_club/configurations/themes.dart';
 
 class TextFieldWidget extends StatelessWidget {
   String label;
@@ -19,24 +20,32 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      obscureText: isVisible ?? false,
-      validator: validator,
-      keyboardType: keyboardType,
-      decoration: InputDecoration(
-          suffixIcon: suffix,
-          prefixIcon: prefix,
-          filled: true,
-          fillColor: Color(0xFFB6D5E1),
-          labelText: label,
-          labelStyle: Theme.of(context).textTheme.bodySmall,
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
-              borderSide: BorderSide(color: Color(0xFF65799B))),
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
-              borderSide: BorderSide(color: Color(0xFF65799B)))),
+    return Card(
+      elevation: 8,
+      color: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25)
+      ),
+      child: TextFormField(
+        cursorColor: MyTheme.boldBlue,
+        controller: controller,
+        obscureText: isVisible ?? false,
+        validator: validator,
+        keyboardType: keyboardType,
+        decoration: InputDecoration(
+            suffixIcon: suffix,
+            prefixIcon: prefix,
+            filled: true,
+            fillColor: MyTheme.lightBlue,
+            labelText: label,
+            labelStyle: Theme.of(context).textTheme.bodySmall,
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25),
+                borderSide: BorderSide(color: MyTheme.boldBlue)),
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25),
+                borderSide: BorderSide(color: MyTheme.boldBlue))),
+      ),
     );
   }
 }
