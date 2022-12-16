@@ -20,31 +20,31 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 8,
-      color: Colors.transparent,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(25)
-      ),
-      child: TextFormField(
-        cursorColor: MyTheme.boldBlue,
-        controller: controller,
-        obscureText: isVisible ?? false,
-        validator: validator,
-        keyboardType: keyboardType,
-        decoration: InputDecoration(
-            suffixIcon: suffix,
-            prefixIcon: prefix,
-            filled: true,
-            fillColor: MyTheme.lightBlue,
-            labelText: label,
-            labelStyle: Theme.of(context).textTheme.bodySmall,
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: BorderSide(color: MyTheme.boldBlue)),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: BorderSide(color: MyTheme.boldBlue))),
+    return TextFormField(
+      cursorColor: MyTheme.boldBlue,
+      controller: controller,
+      obscureText: isVisible ?? false,
+      validator: validator,
+      keyboardType: keyboardType,
+      decoration: InputDecoration(
+          suffixIcon: suffix,
+          prefixIcon: prefix,
+          filled: true,
+          fillColor: MyTheme.lightBlue,
+          labelText: label,
+          labelStyle: Theme.of(context).textTheme.bodySmall,
+          errorStyle: TextStyle(
+            fontSize: 14
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25),
+              borderSide: BorderSide(color: MyTheme.boldBlue)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25),
+              borderSide: BorderSide(color: MyTheme.boldBlue)),
+          border:  OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25),
+              borderSide: BorderSide(color: MyTheme.boldBlue)),
       ),
     );
   }
