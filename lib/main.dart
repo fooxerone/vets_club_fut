@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vets_club/configurations/themes.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
 import 'package:vets_club/pages/Register_Screen/RegisterScreen.dart';
 
@@ -14,6 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: MyTheme.lightTheme,
       title: 'Vets club',
       routes: {
         LoginScreen.routeName: (_) => LoginScreen(),
