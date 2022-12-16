@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         RegisterScreen.routeName: (_) => RegisterScreen(),
         InfoScreen.routeName: (_) => InfoScreen(),
       },
-      initialRoute: InfoScreen.routeName,
+      initialRoute: LoginScreen.routeName,
     );
   }
 }
