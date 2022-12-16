@@ -11,9 +11,9 @@ class MyTheme{
     scaffoldBackgroundColor: lightBlue,
     textTheme: TextTheme(
       bodySmall: GoogleFonts.k2d(
-        fontSize: 16,
-        color: Colors.black,
-      ),
+        fontSize: 18,
+            color: Colors.black,
+          ),
         bodyMedium: GoogleFonts.juliusSansOne(
           fontSize: 16,
           color: purple,

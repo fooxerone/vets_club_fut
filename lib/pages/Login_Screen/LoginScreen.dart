@@ -26,11 +26,16 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Padding(
           padding: EdgeInsets.all(size.width * 0.05),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              SizedBox(
+                height: size.height * 0.03,
+              ),
               Image.asset(
                 'assets/vets_club.png',
-                width: size.width * 0.4,
+                width: size.width * 0.5,
+              ),
+              SizedBox(
+                height: size.height * 0.03,
               ),
               TextFieldWidget(
                   label: 'Email Address',

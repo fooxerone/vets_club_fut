@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:vets_club/configurations/themes.dart';
 
@@ -11,24 +9,23 @@ class ElevatedBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: onPressed, child: Text(title,
-    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-      fontSize: 32,
-      fontWeight: FontWeight.normal
-    ),
-    ),
-    style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
-          MyTheme.lightBlue
+      onPressed: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          title,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(fontSize: 32, fontWeight: FontWeight.normal),
         ),
-      elevation: MaterialStateProperty.all(8),
-      shape: MaterialStateProperty.all(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
-          side: BorderSide(color: MyTheme.boldBlue)
-        )
-      )
-    ),
+      ),
+      style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(MyTheme.lightBlue),
+          elevation: MaterialStateProperty.all(8),
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25),
+              side: BorderSide(color: MyTheme.boldBlue)))),
     );
   }
 }
