@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: [
               SizedBox(
-                height: size.height * 0.03,
+                height: size.height * 0.08,
               ),
               Image.asset(
                 'assets/vets_club.png',

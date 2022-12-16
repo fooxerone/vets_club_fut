@@ -8,7 +8,7 @@ class MyTheme{
   static const Color purple = Color(0xFF555273);
 
   static ThemeData lightTheme = ThemeData(
-    scaffoldBackgroundColor: lightBlue,
+    scaffoldBackgroundColor: Color(0xFFE2EFF1),
     textTheme: TextTheme(
       bodySmall: GoogleFonts.k2d(
         fontSize: 18,

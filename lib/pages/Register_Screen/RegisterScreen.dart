@@ -40,6 +40,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     color: MyTheme.boldBlue,
                   ),
                   keyboardType: TextInputType.emailAddress),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
               TextFieldWidget(
                   label: 'Email Address',
                   controller: emailController,
@@ -56,6 +59,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     color: MyTheme.boldBlue,
                   ),
                   keyboardType: TextInputType.emailAddress),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
               TextFieldWidget(
                   label: 'Phone Number',
                   controller: emailController,
@@ -64,6 +70,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     color: MyTheme.boldBlue,
                   ),
                   keyboardType: TextInputType.emailAddress),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
               TextFieldWidget(
                   isVisible: isVisible,
                   label: 'Password',
@@ -93,6 +102,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                   ),
                   keyboardType: TextInputType.visiblePassword),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
               TextFieldWidget(
                   isVisible: isVisible,
                   label: 'Confirm Password',
