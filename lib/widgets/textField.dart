@@ -7,6 +7,8 @@ class TextFieldWidget extends StatelessWidget {
   bool? isVisible;
   Widget? suffix;
   Widget? prefix;
+  int? minLine;
+  int? maxLine;
   TextInputType keyboardType;
   FormFieldValidator<String>? validator;
   TextFieldWidget(
@@ -16,7 +18,7 @@ class TextFieldWidget extends StatelessWidget {
       this.suffix,
       this.prefix,
       this.validator,
-      required this.keyboardType});
+      required this.keyboardType,this.maxLine = 1,this.minLine = 1});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,8 @@ class TextFieldWidget extends StatelessWidget {
       obscureText: isVisible ?? false,
       validator: validator,
       keyboardType: keyboardType,
+      maxLines: maxLine,
+      minLines: minLine,
       decoration: InputDecoration(
           suffixIcon: suffix,
           prefixIcon: prefix,

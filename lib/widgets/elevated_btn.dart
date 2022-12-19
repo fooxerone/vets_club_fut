@@ -18,7 +18,7 @@ class ElevatedBtn extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .bodyMedium
-              ?.copyWith(fontSize: 32, fontWeight: FontWeight.normal),
+              ?.copyWith(fontSize: 24, fontWeight: FontWeight.normal),
         ),
       ),
       style: ButtonStyle(
