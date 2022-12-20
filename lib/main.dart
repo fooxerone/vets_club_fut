@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:vets_club/configurations/themes.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
 import 'package:vets_club/pages/Register_Screen/RegisterScreen.dart';
+import 'package:vets_club/pages/clinic_home_screen/ClinicHomeScreen.dart';
+import 'package:vets_club/pages/formNotes_screen/FormNotesScreen.dart';
 import 'package:vets_club/pages/form_screen/FormScreen.dart';
 import 'package:vets_club/pages/info_screen/information_screen.dart';
+import 'package:vets_club/pages/package_screen/PackageScreen.dart';
+import 'package:vets_club/pages/twoPackage_screen/TwoPackageScreen.dart';
 
 
 void main() {
@@ -13,7 +17,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,8 +28,12 @@ class MyApp extends StatelessWidget {
         RegisterScreen.routeName: (_) => RegisterScreen(),
         InfoScreen.routeName: (_) => InfoScreen(),
         FormScreen.routeName: (_) => FormScreen(),
+        PackageScreen.routeName: (_) => PackageScreen(),
+        FormNotesScreen.routeName: (_) => FormNotesScreen(),
+        TwoPackageScreen.routeName: (_) => TwoPackageScreen(),
+        ClinicHomeScreen.routeName: (_) => ClinicHomeScreen(),
       },
-      initialRoute: LoginScreen.routeName,
+      initialRoute: FormScreen.routeName,
     );
   }
 }

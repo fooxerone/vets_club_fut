@@ -1,10 +1,12 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
-
-import '../../configurations/regex.dart';
+import '../../configurations/alert_dialog.dart';
 import '../../configurations/themes.dart';
 import '../../widgets/elevated_btn.dart';
 import '../../widgets/textField.dart';
+import 'RegisterScreenService.dart';
+
 
 class RegisterScreen extends StatefulWidget {
   static const String routeName = 'Register';
@@ -21,6 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController nameController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool isVisible = true;
+  bool isVisibleTwo = true;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Icons.person_outline,
                       color: MyTheme.boldBlue,
                     ),
-                    validator: (name){
+                    validator: (name) {
                       if (name == null || name.trim().isEmpty) {
                         return 'Full Name must not be empty';
                       }
@@ -64,8 +67,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     validator: (email) {
                       if (email == null || email.trim().isEmpty) {
                         return 'Email Address must not be empty';
-                      } else if (RegexValidate.isValidEmail(email)) {
-                        return 'Email Address not valid';
                       }
                       return null;
                     },
@@ -127,14 +128,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   height: size.height * 0.03,
                 ),
                 TextFieldWidget(
-                    isVisible: isVisible,
+                    isVisible: isVisibleTwo,
                     label: 'Confirm Password',
                     controller: confirmPassController,
                     validator: (password) {
                       if (password == null || password.trim().isEmpty) {
                         return 'Confirm Password must not be empty';
-                      }
-                      else if (password != passController.text) {
+                      } else if (password != passController.text) {
                         return 'Password must be similar';
                       }
                       return null;
@@ -145,11 +145,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     suffix: IconButton(
                       onPressed: () {
-                        isVisible = !isVisible;
+                        isVisibleTwo = !isVisibleTwo;
                         setState(() {});
                       },
                       icon: Icon(
-                        isVisible == true
+                        isVisibleTwo == true
                             ? Icons.visibility
                             : Icons.visibility_off,
                         color: MyTheme.boldBlue,
@@ -159,11 +159,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(
                   height: size.height * 0.04,
                 ),
-                ElevatedBtn(title: 'Register'.toUpperCase(), onPressed: () {
-                  if(formKey.currentState!.validate()){
-
-                  }
-                }),
+                ElevatedBtn(
+                    title: 'Register'.toUpperCase(),
+                    onPressed: ()async {
+                      if (formKey.currentState!.validate()) {
+                        showLoading(context,'Loading....',isCancelable: false);
+                        var auth = await createAccountDoc(
+                          name: nameController.text,
+                          email:emailController.text,
+                          password:passController.text,
+                          phone: phoneController.text,);
+                        if(auth.stat?.regestersuccess == true){
+                          hideLoading(context);
+                        }
+                        else{
+                          hideLoading(context);
+                          showMessage(context, dialogType: DialogType.error, desc: auth.message??'',btnOkOnPress: (){
+                          });
+                        }
+                    }}),
                 SizedBox(
                   height: size.height * 0.025,
                 ),
@@ -171,14 +185,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Don you Have Account..?'.toUpperCase(),
+                      'Do you Have Account..?'.toUpperCase(),
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium
-                          ?.copyWith(fontWeight: FontWeight.normal, fontSize: 15),
+                          ?.copyWith(
+                              fontWeight: FontWeight.normal, fontSize: 15),
                     ),
                     TextButton(
-                        onPressed: () {
+                        onPressed: (){
                           Navigator.pushReplacementNamed(
                               context, LoginScreen.routeName);
                         },

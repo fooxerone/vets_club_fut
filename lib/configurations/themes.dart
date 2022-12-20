@@ -8,6 +8,19 @@ class MyTheme{
   static const Color purple = Color(0xFF555273);
 
   static ThemeData lightTheme = ThemeData(
+    appBarTheme: AppBarTheme(
+      color: purple,
+      elevation: 0,
+      centerTitle: true,
+      titleTextStyle: GoogleFonts.juliusSansOne(
+        fontSize: 24,
+        color: Colors.white
+      ),
+      iconTheme: IconThemeData(
+        color: Colors.white,
+
+      )
+    ),
     scaffoldBackgroundColor: Color(0xFFE2EFF1),
     textTheme: TextTheme(
       bodySmall: GoogleFonts.k2d(
@@ -19,6 +32,8 @@ class MyTheme{
           color: purple,
           fontWeight: FontWeight.bold
         ),
+        titleLarge: GoogleFonts.juliusSansOne(
+            fontSize: 32, color: purple, fontWeight: FontWeight.normal),
         bodyLarge: GoogleFonts.juliusSansOne(
             fontSize: 24, color: purple, fontWeight: FontWeight.bold))
   );

@@ -270,10 +270,7 @@ class _FormScreenState extends State<FormScreen> {
           initialValue: isSelected,
           onConfirm: (values) {
               isSelected = values;
-              print(isSelected);
-              setState(() {
-
-              });
+              setState(() {});
           },
         );
       },
