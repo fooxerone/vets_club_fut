@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:vets_club/configurations/regex.dart';
 import 'package:vets_club/configurations/themes.dart';
+import 'package:vets_club/pages/Login_Screen/LoginScreenViewModel.dart';
 import 'package:vets_club/pages/Register_Screen/RegisterScreen.dart';
 import 'package:vets_club/widgets/elevated_btn.dart';
 import 'package:vets_club/widgets/textField.dart';
@@ -21,11 +23,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var provider = Provider.of<LoginProvider>(context);
     return Scaffold(
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.all(size.width * 0.05),
+          padding: EdgeInsets.all(size.height * 0.023),
           child: Form(
             key: formKey,
             child: Column(
@@ -49,8 +52,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     validator: (email) {
                       if (email == null || email.trim().isEmpty) {
                         return 'Email Address must not be empty';
-                      } else if (RegexValidate.isValidEmail(email)) {
-                        return 'Email Address not valid';
                       }
                       return null;
                     },
@@ -105,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 ElevatedBtn(title: 'Login'.toUpperCase(), onPressed: () {
                   if(formKey.currentState!.validate()){
-
+                    provider.loginAccount(context, email: emailController.text, password: passController.text);
                   }
                 }),
                 SizedBox(

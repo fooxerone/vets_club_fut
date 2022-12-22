@@ -252,7 +252,7 @@ class _FormScreenState extends State<FormScreen> {
                 ],
               ),
               SizedBox(height: size.height * 0.05,),
-              ElevatedBtn(title: 'send request', onPressed: (){})
+              ElevatedBtn(title: 'next', onPressed: (){})
             ],
           ),
         ),

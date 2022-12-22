@@ -12,7 +12,7 @@ class InfoScreen extends StatelessWidget {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: size.width * 0.015),
+          padding: EdgeInsets.symmetric(vertical: size.height * 0.007),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
