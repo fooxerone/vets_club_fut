@@ -11,18 +11,17 @@ class RegisterProvider extends ChangeNotifier{
     required String email,
     required String password,
     required String phone})async{
-    showLoading(context,'Loading....',isCancelable: false);
+    showLoading(context,isCancelable: false);
     var auth = await createAccountDoc(
         name: name,
         email:email,
         password:password,
-        phone: phone,);
+        phone: phone,
+    );
+    hideLoading(context);
     if(auth.stat?.regestersuccess == true){
-      hideLoading(context);
-
     }
     else{
-      hideLoading(context);
       showMessage(context, dialogType: DialogType.error, desc: auth.message??'',btnOkOnPress: (){
 
       });

@@ -19,7 +19,7 @@ class ClinicHomeScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.05,vertical: size.width * 0.05),
+        padding: EdgeInsets.symmetric(horizontal: size.height * 0.023,vertical: size.height * 0.023),
         child: Column(
           children: [
             CircleAvatar(
@@ -29,33 +29,59 @@ class ClinicHomeScreen extends StatelessWidget {
             SizedBox(height: size.height * 0.05,),
             Row(
               children: [
-                Container(
-                  height: size.height * 0.18,
-                  width: size.width * 0.42,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: MyTheme.lightBlue,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Text(
-                    'Patients',
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.normal
+                InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                  onTap: (){
+
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                    ),
+                    elevation: 4,
+                    color: Colors.transparent,
+                    child: Container(
+                      height: size.height * 0.18,
+                      width: size.width * 0.42,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: MyTheme.lightBlue,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Text(
+                        'Patients',
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            fontWeight: FontWeight.normal
+                        ),
+                      ),
                     ),
                   ),
                 ),
                Spacer(),
-                Container(
-                  height: size.height * 0.18,
-                  width: size.width * 0.42,
+                InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                  onTap: (){
 
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: MyTheme.lightBlue,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Text(
-                    'Owners',
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      fontWeight: FontWeight.normal
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                    ),
+                    elevation: 4,
+                    color: Colors.transparent,
+                    child: Container(
+                      height: size.height * 0.18,
+                      width: size.width * 0.42,
+
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: MyTheme.lightBlue,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Text(
+                        'Owners',
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          fontWeight: FontWeight.normal
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -66,53 +92,92 @@ class ClinicHomeScreen extends StatelessWidget {
             ),
             Row(
               children: [
-                Container(
-                  height: size.height * 0.18,
-                  width: size.width * 0.42,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: MyTheme.lightBlue,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Text(
-                    'Drugs',
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.normal
+                InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                  onTap: (){
+
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
                     ),
+                    elevation: 4,
+                    color: Colors.transparent,
+                  child: Container(
+                    height: size.height * 0.18,
+                    width: size.width * 0.42,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: MyTheme.lightBlue,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Text(
+                      'Drugs',
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          fontWeight: FontWeight.normal
+                      ),
+                    ),
+                  ),
                   ),
                 ),
                Spacer(),
-                Container(
-                  height: size.height * 0.18,
-                  width: size.width * 0.42,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: MyTheme.lightBlue,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Text(
-                    'Items & Processes',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      fontWeight: FontWeight.normal
+                InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                  onTap: (){
+
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
                     ),
+                    elevation: 4,
+                    color: Colors.transparent,
+                  child: Container(
+                    height: size.height * 0.18,
+                    width: size.width * 0.42,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: MyTheme.lightBlue,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Text(
+                      'Items & Processes',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontWeight: FontWeight.normal
+                      ),
+                    ),
+                  ),
                   ),
                 ),
               ],
-            ),
+                  ),
             SizedBox(
               height: size.height * 0.04,
             ),
-            Container(
-              height: size.height * 0.18,
-              width: size.width * 0.42,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: MyTheme.lightBlue,
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text(
-                'Inventory',
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.normal
+            InkWell(
+              borderRadius: BorderRadius.circular(20),
+              onTap: (){
+
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)
                 ),
+                elevation: 4,
+                color: Colors.transparent,
+              child: Container(
+                height: size.height * 0.18,
+                width: size.width * 0.42,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: MyTheme.lightBlue,
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text(
+                  'Inventory',
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.normal
+                  ),
+                ),
+              ),
               ),
             ),
           ],

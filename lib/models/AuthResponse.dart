@@ -1,87 +1,60 @@
-/// data : {"id":25,"name":"ziad mohamed","email":"ziad68@gmail.com","email_verified_at":null,"password":"$2y$10$CQWjgUX6/YJj/ZFQcIiU.edGWAbrm.QG4teH9ssh04vH8wnDfpaUG","randomString":"PSQVFWADTH46WBFI","phone":122555568,"pakeg_tyep":null,"Payment_status":null,"abrove_status":null,"pakeg_name":null,"created_at":"2022-12-20T17:38:15.000000Z","updated_at":"2022-12-20T17:38:15.000000Z"}
-/// stat : {"regestersuccess":true}
-
 class AuthResponse {
-  AuthResponse({
-      this.data, 
-      this.stat,
-      this.message
-  });
-
-  AuthResponse.fromJson(dynamic json) {
-    message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
-    stat = json['stat'] != null ? Stat.fromJson(json['stat']) : null;
-  }
+  String? message;
   Data? data;
   Stat? stat;
-  String? message;
 
+  AuthResponse({this.message, this.data, this.stat});
+
+  AuthResponse.fromJson(Map<String, dynamic> json) {
+    message = json['message'];
+    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    stat = json['stat'] != null ? new Stat.fromJson(json['stat']) : null;
+  }
 
   Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['message'] = message;
-    if (data != null) {
-      map['data'] = data?.toJson();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['message'] = this.message;
+    if (this.data != null) {
+      data['data'] = this.data!.toJson();
     }
-    if (stat != null) {
-      map['stat'] = stat?.toJson();
+    if (this.stat != null) {
+      data['stat'] = this.stat!.toJson();
     }
-    return map;
+    return data;
   }
-
 }
-
-/// regestersuccess : true
-
-class Stat {
-  Stat({
-      this.regestersuccess,});
-
-  Stat.fromJson(dynamic json) {
-    regestersuccess = json['regestersuccess'];
-  }
-  bool? regestersuccess;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['regestersuccess'] = regestersuccess;
-    return map;
-  }
-
-}
-
-/// id : 25
-/// name : "ziad mohamed"
-/// email : "ziad68@gmail.com"
-/// email_verified_at : null
-/// password : "$2y$10$CQWjgUX6/YJj/ZFQcIiU.edGWAbrm.QG4teH9ssh04vH8wnDfpaUG"
-/// randomString : "PSQVFWADTH46WBFI"
-/// phone : 122555568
-/// pakeg_tyep : null
-/// Payment_status : null
-/// abrove_status : null
-/// pakeg_name : null
-/// created_at : "2022-12-20T17:38:15.000000Z"
-/// updated_at : "2022-12-20T17:38:15.000000Z"
 
 class Data {
-  Data({
-      this.id, 
-      this.name, 
-      this.email, 
-      this.emailVerifiedAt, 
-      this.password, 
-      this.randomString, 
-      this.phone, 
-      this.pakegTyep, 
-      this.paymentStatus, 
-      this.abroveStatus, 
-      this.pakegName, 
-      this.createdAt, 
-      this.updatedAt,});
+  int? id;
+  String? name;
+  String? email;
+  Null? emailVerifiedAt;
+  String? password;
+  String? randomString;
+  int? phone;
+  Null? pakegTyep;
+  Null? paymentStatus;
+  Null? abroveStatus;
+  Null? pakegName;
+  String? createdAt;
+  String? updatedAt;
 
-  Data.fromJson(dynamic json) {
+  Data(
+      {this.id,
+        this.name,
+        this.email,
+        this.emailVerifiedAt,
+        this.password,
+        this.randomString,
+        this.phone,
+        this.pakegTyep,
+        this.paymentStatus,
+        this.abroveStatus,
+        this.pakegName,
+        this.createdAt,
+        this.updatedAt});
+
+  Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     email = json['email'];
@@ -96,36 +69,47 @@ class Data {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
-  num? id;
-  String? name;
-  String? email;
-  dynamic emailVerifiedAt;
-  String? password;
-  String? randomString;
-  num? phone;
-  dynamic pakegTyep;
-  dynamic paymentStatus;
-  dynamic abroveStatus;
-  dynamic pakegName;
-  String? createdAt;
-  String? updatedAt;
 
   Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['name'] = name;
-    map['email'] = email;
-    map['email_verified_at'] = emailVerifiedAt;
-    map['password'] = password;
-    map['randomString'] = randomString;
-    map['phone'] = phone;
-    map['pakeg_tyep'] = pakegTyep;
-    map['Payment_status'] = paymentStatus;
-    map['abrove_status'] = abroveStatus;
-    map['pakeg_name'] = pakegName;
-    map['created_at'] = createdAt;
-    map['updated_at'] = updatedAt;
-    return map;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['email_verified_at'] = this.emailVerifiedAt;
+    data['password'] = this.password;
+    data['randomString'] = this.randomString;
+    data['phone'] = this.phone;
+    data['pakeg_tyep'] = this.pakegTyep;
+    data['Payment_status'] = this.paymentStatus;
+    data['abrove_status'] = this.abroveStatus;
+    data['pakeg_name'] = this.pakegName;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    return data;
+  }
+}
+
+class Stat {
+  bool? emailexets;
+  bool? regestersuccess;
+  bool? loginsuccess;
+
+
+  Stat({this.emailexets, this.regestersuccess,this.loginsuccess});
+
+  Stat.fromJson(Map<String, dynamic> json) {
+    emailexets = json['emailexets'];
+    regestersuccess = json['regestersuccess'];
+    loginsuccess = json['loginsuccess'];
+
   }
 
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['emailexets'] = this.emailexets;
+    data['regestersuccess'] = this.regestersuccess;
+    data['loginsuccess'] = this.loginsuccess;
+    return data;
+  }
 }
+

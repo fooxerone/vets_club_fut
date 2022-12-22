@@ -20,7 +20,7 @@ class TwoPackageScreen extends StatelessWidget {
       ),
       drawer: Drawer(),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.15,vertical: size.width * 0.05),
+        padding: EdgeInsets.symmetric(horizontal: size.height * 0.07,vertical: size.height * 0.023),
         child: Column(
           children: [
             CircleAvatar(
@@ -29,33 +29,54 @@ class TwoPackageScreen extends StatelessWidget {
             ),
                   SizedBox(height: size.height * 0.15,),
                   InkWell(
+                    borderRadius: BorderRadius.circular(20),
                     onTap: (){
                       Navigator.pushNamed(context, ClinicHomeScreen.routeName);
                     },
-                    child: Container(
-                      height: size.height * 0.15,
-                      width: double.infinity,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: MyTheme.lightBlue,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)
                       ),
-                        child: Text('Clinic',
-                        style: Theme.of(context).textTheme.titleLarge,
+                      elevation: 4,
+                      color: Colors.transparent,
+                      child: Container(
+                        height: size.height * 0.15,
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: MyTheme.lightBlue,
+                          borderRadius: BorderRadius.circular(20)
                         ),
+                          child: Text('Clinic',
+                          style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                      ),
                     ),
                   ),
                   SizedBox(height: size.height * 0.04,),
-                  Container(
-                    height: size.height * 0.15,
-                    width: double.infinity,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        color: MyTheme.lightBlue,
-                        borderRadius: BorderRadius.circular(20)
-                    ),
-                    child: Text('Bookings',
-                      style: Theme.of(context).textTheme.titleLarge,
+                  InkWell(
+                    borderRadius: BorderRadius.circular(20),
+                    onTap: (){
+
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                      elevation: 4,
+                      color: Colors.transparent,
+                      child: Container(
+                        height: size.height * 0.15,
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: MyTheme.lightBlue,
+                            borderRadius: BorderRadius.circular(20)
+                        ),
+                        child: Text('Bookings',
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                      ),
                     ),
                   ),
                 ],

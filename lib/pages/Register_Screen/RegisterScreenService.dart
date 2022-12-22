@@ -17,7 +17,7 @@ Future<AuthResponse> createAccountDoc(
     required String password,
     required String phone}) async {
   HttpOverrides.global = MyHttpOverrides();
-  var url = Uri.https('vets-club.com', '/api/v1/regester');
+  var url = Uri.https('www.vets-club.com', '/api/v1/regester');
   var response = await http.post(url, body: {
     "name": name,
     "email": email,
