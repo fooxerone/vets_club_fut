@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
             ClinicHomeScreen.routeName: (_) => ClinicHomeScreen(),
           },
 
-          initialRoute: PackageScreen.routeName,
+          initialRoute: FormScreen.routeName,
         ),
     );
   }

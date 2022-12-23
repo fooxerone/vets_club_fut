@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_multi_select_items/flutter_multi_select_items.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../configurations/themes.dart';
@@ -14,17 +15,26 @@ class FormNotesScreen extends StatefulWidget {
 }
 
 class _FormNotesScreenState extends State<FormNotesScreen> {
+  Key key = UniqueKey();
+
+  void restartApp() {
+    setState(() {
+      key;
+    });
+  }
+
   TextEditingController clinicNameControl = TextEditingController();
   TextEditingController locationControl = TextEditingController();
   TextEditingController phoneControl = TextEditingController();
   TextEditingController ownerControl = TextEditingController();
+  TextEditingController animalController = TextEditingController();
   TextEditingController clinicServiceControl = TextEditingController();
-  List isSelected = [];
   bool isStatic = false;
   bool isHospital = false;
   bool isMobile = false;
   List<String> clinicType = [];
-  List items = ['ddd','ddd','dd'];
+  List<String> animals = <String>['Equine', 'Pet', 'Ovine', 'Bovine'];
+  List animalsSelected = [];
   List<XFile> images = [];
   XFile? video;
   final ImagePicker picker = ImagePicker();
@@ -36,7 +46,7 @@ class _FormNotesScreenState extends State<FormNotesScreen> {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.07,vertical: size.width * 0.1),
+          padding: EdgeInsets.symmetric(horizontal: size.height * 0.03, vertical: size.height * 0.045),
           child: Column(
             children: [
               Text('Promote Your Vet Clinic',
@@ -64,10 +74,63 @@ class _FormNotesScreenState extends State<FormNotesScreen> {
                   controller: phoneControl,
                   keyboardType: TextInputType.phone
               ),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
+              Column(
+                key: key,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Clinic Specialty',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge
+                        ?.copyWith(fontSize: 18, color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  MultiSelectContainer(
+                    items: animals
+                        .map((val) => MultiSelectCard(value: val, label: val))
+                        .toList(),
+                    onChange: (selectedItems, selectedItem) {
+                      setState(() {
+                        animalsSelected.add(selectedItem);
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFieldWidget(
+                          label: 'Other Animals',
+                          controller: animalController,
+                          keyboardType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(
+                        width: size.width * 0.02,
+                      ),
+                      IconBtn(
+                          icon: Icons.add,
+                          onPressed: () {
+                            animals.add(animalController.text);
+                            restartApp();
+                          })
+                    ],
+                  ),
+                ],
+              ),
               SizedBox(height: size.height * 0.03,),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: size.width * 0.02),
+                padding: EdgeInsets.symmetric(vertical: size.height * 0.0095),
                 height: size.height * 0.191,
                 decoration: BoxDecoration(
                     color: MyTheme.lightBlue,
@@ -77,7 +140,7 @@ class _FormNotesScreenState extends State<FormNotesScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: size.width * 0.02),
+                      padding: EdgeInsets.only(left: size.height * 0.009),
                       child: Text('Clinic Type',
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: Colors.black,
@@ -168,7 +231,7 @@ class _FormNotesScreenState extends State<FormNotesScreen> {
           SizedBox(height: size.height * 0.03,),
           Container(
             width: double.infinity,
-            padding: EdgeInsets.all(size.width * 0.02),
+            padding: EdgeInsets.all(size.height * 0.0095),
             height: size.height * 0.1,
             decoration: BoxDecoration(
                 color: MyTheme.lightBlue,
@@ -177,7 +240,7 @@ class _FormNotesScreenState extends State<FormNotesScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Clinic  Activity Location',
+                Text('Clinic Activity Location',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: Colors.black,
                       fontSize: 16
