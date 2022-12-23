@@ -18,7 +18,7 @@ class _PackageScreenState extends State<PackageScreen> {
       child: Scaffold(
         body: Padding(
           padding: EdgeInsets.symmetric(
-              vertical: size.height * 0.02, horizontal: size.height * 0.03),
+              vertical: size.height * 0.02, horizontal: size.height * 0.025),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
