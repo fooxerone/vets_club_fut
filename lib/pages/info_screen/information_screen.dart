@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:vets_club/pages/package_screen/PackageScreen.dart';
 
 import '../../widgets/elevated_btn.dart';
 
 class InfoScreen extends StatelessWidget {
-  static const String routeName = 'info';
+  static const String routeName = '/info';
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,9 @@ class InfoScreen extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
               ),
-              ElevatedBtn(title: 'Next'.toUpperCase(), onPressed: () {}),
+              ElevatedBtn(title: 'Next'.toUpperCase(), onPressed: () {
+                Get.toNamed(PackageScreen.routeName);
+              }),
             ],
           ),
         ),

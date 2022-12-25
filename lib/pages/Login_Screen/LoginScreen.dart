@@ -6,9 +6,11 @@ import 'package:vets_club/pages/Login_Screen/LoginScreenViewModel.dart';
 import 'package:vets_club/pages/Register_Screen/RegisterScreen.dart';
 import 'package:vets_club/widgets/elevated_btn.dart';
 import 'package:vets_club/widgets/textField.dart';
+import 'package:get/get.dart';
+
 
 class LoginScreen extends StatefulWidget {
-  static const String routeName = 'Login';
+  static const String routeName = '/Login';
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -52,6 +54,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     validator: (email) {
                       if (email == null || email.trim().isEmpty) {
                         return 'Email Address must not be empty';
+                      }
+                      if(RegexValidate.isValidEmail(email) == false){
+                        return 'Email Address is not valid';
                       }
                       return null;
                     },
@@ -126,8 +131,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextButton(
                         onPressed: () {
-                          Navigator.pushReplacementNamed(
-                              context, RegisterScreen.routeName);
+                         Get.toNamed(RegisterScreen.routeName,
+                         );
                         },
                         child: Text(
                           'Register'.toUpperCase(),

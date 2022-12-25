@@ -8,7 +8,7 @@ import 'package:vets_club/widgets/iconBtn.dart';
 import 'package:vets_club/widgets/textField.dart';
 
 class FormScreen extends StatefulWidget {
-  static const String routeName = 'form';
+  static const String routeName = '/form';
 
   @override
   State<FormScreen> createState() => _FormScreenState();
@@ -34,10 +34,12 @@ class _FormScreenState extends State<FormScreen> {
   bool isMobile = false;
   List<String> clinicType = [];
   List<XFile> images = [];
-  XFile? video;
+  XFile? camera;
   final ImagePicker picker = ImagePicker();
-  List<String> animals = <String>['Equine', 'Pet', 'Ovine', 'Bovine'];
+  List<String> animals = ['Equine', 'Pet', 'Ovine', 'Bovine'];
   List animalsSelected = [];
+  int index = 0;
+  double height = 0;
 
   List<String> country = [
     'Choose Country',
@@ -105,6 +107,62 @@ class _FormScreenState extends State<FormScreen> {
                   controller: ownerControl,
                   keyboardType: TextInputType.text),
               SizedBox(
+                height: height,
+                child: ListView.separated(
+                  physics: NeverScrollableScrollPhysics(),
+                  separatorBuilder: (context, index) => SizedBox(height: size.height * 0.026,),
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        child: Row(
+                          children: [
+                            Expanded(
+                                child: SizedBox(
+                                  height: size.height * 0.06,
+                                  child: TextFieldWidget(
+                                      label: 'Vet Name ${index+1}',
+                                      controller: ownerControl,
+                                      keyboardType: TextInputType.text),
+                                )),
+                            SizedBox(width: size.width * 0.015,),
+                            Expanded(
+                                child: SizedBox(
+                                  height: size.height * 0.06,
+                                  child: TextFieldWidget(
+                                      label: 'Qualification ${index+1}',
+                                      controller: ownerControl,
+                                      keyboardType: TextInputType.text),
+                                )),
+                          ],
+                        ),
+                      );
+                    },
+                    itemCount: index),
+              ),
+             index == 0? SizedBox(
+                height: size.height * 0.03,
+              ) : SizedBox(
+               height:0,
+             ),
+              Row(
+                children: [
+                  Text('Add Veterinarian',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith(fontSize: 16),
+                  ),
+                  Spacer(),
+                  IconBtn(
+                      onPressed: () {
+                        index++;
+                       index == 1  ? height += 85 : height+= 75;
+                        print(height);
+                        setState(() {});
+                      },
+                      icon: Icons.add)
+                ],
+              ),
+              SizedBox(
                 height: size.height * 0.03,
               ),
               Row(
@@ -125,8 +183,8 @@ class _FormScreenState extends State<FormScreen> {
                       icon: Icons.camera_alt_outlined),
                   IconBtn(
                       onPressed: () async {
-                        video =
-                            await picker.pickVideo(source: ImageSource.gallery);
+                        camera =
+                            await picker.pickImage(source: ImageSource.camera);
                       },
                       icon: Icons.videocam_outlined)
                 ],
@@ -152,8 +210,8 @@ class _FormScreenState extends State<FormScreen> {
                       icon: Icons.camera_alt_outlined),
                   IconBtn(
                       onPressed: () async {
-                        video =
-                            await picker.pickVideo(source: ImageSource.gallery);
+                        camera =
+                        await picker.pickImage(source: ImageSource.camera);
                       },
                       icon: Icons.videocam_outlined)
                 ],

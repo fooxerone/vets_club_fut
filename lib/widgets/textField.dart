@@ -36,7 +36,9 @@ class TextFieldWidget extends StatelessWidget {
           filled: true,
           fillColor: MyTheme.lightBlue,
           labelText: label,
-          labelStyle: Theme.of(context).textTheme.bodySmall,
+          labelStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
+            fontSize: 16
+          ),
           errorStyle: TextStyle(
             fontSize: 14
           ),

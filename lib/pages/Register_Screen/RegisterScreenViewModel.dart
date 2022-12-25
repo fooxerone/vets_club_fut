@@ -1,8 +1,11 @@
 
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:vets_club/configurations/alert_dialog.dart';
 
+import '../info_screen/information_screen.dart';
 import 'RegisterScreenService.dart';
 
 class RegisterProvider extends ChangeNotifier{
@@ -20,6 +23,7 @@ class RegisterProvider extends ChangeNotifier{
     );
     hideLoading(context);
     if(auth.stat?.regestersuccess == true){
+      Get.toNamed(InfoScreen.routeName);
     }
     else{
       showMessage(context, dialogType: DialogType.error, desc: auth.message??'',btnOkOnPress: (){

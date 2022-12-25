@@ -3,7 +3,7 @@ import 'package:vets_club/configurations/themes.dart';
 import 'package:vets_club/pages/clinic_home_screen/ClinicHomeScreen.dart';
 
 class TwoPackageScreen extends StatelessWidget {
- static const String routeName = 'twoPackage';
+ static const String routeName = '/twoPackage';
 
  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override

@@ -11,6 +11,7 @@ import 'package:vets_club/pages/form_screen/FormScreen.dart';
 import 'package:vets_club/pages/info_screen/information_screen.dart';
 import 'package:vets_club/pages/package_screen/PackageScreen.dart';
 import 'package:vets_club/pages/twoPackage_screen/TwoPackageScreen.dart';
+import 'package:get/get.dart';
 
 
 void main() {
@@ -27,11 +28,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => RegisterProvider(),),
         ChangeNotifierProvider(create: (context) => LoginProvider(),)
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
           debugShowCheckedModeBanner: false,
           theme: MyTheme.lightTheme,
           title: 'Vets club',
-          routes: {
+         /* routes: {
             LoginScreen.routeName: (_) => LoginScreen(),
             RegisterScreen.routeName: (_) => RegisterScreen(),
             InfoScreen.routeName: (_) => InfoScreen(),
@@ -40,9 +41,29 @@ class MyApp extends StatelessWidget {
             FormNotesScreen.routeName: (_) => FormNotesScreen(),
             TwoPackageScreen.routeName: (_) => TwoPackageScreen(),
             ClinicHomeScreen.routeName: (_) => ClinicHomeScreen(),
-          },
+          },*/
+        getPages:[
+            GetPage(name: LoginScreen.routeName, page:() =>  LoginScreen(),
+                transition: Transition.fadeIn
+            ),
+          GetPage(name: FormScreen.routeName, page:() =>  FormScreen(),
+                transition: Transition.size
+            ),
+          GetPage(name: TwoPackageScreen.routeName, page:() =>  TwoPackageScreen(),
+                transition: Transition.rightToLeftWithFade
+            ),
+          GetPage(name: PackageScreen.routeName, page:() =>  PackageScreen(),
+                transition: Transition.rightToLeftWithFade
+            ),
+          GetPage(name: InfoScreen.routeName, page:() =>  InfoScreen(),
+                transition: Transition.rightToLeftWithFade
+            ),
+            GetPage(name: RegisterScreen.routeName, page:() =>  RegisterScreen(),
+              transition: Transition.rightToLeftWithFade,
 
-          initialRoute: PackageScreen.routeName,
+            ),
+        ],
+          initialRoute: FormScreen.routeName,
         ),
     );
   }

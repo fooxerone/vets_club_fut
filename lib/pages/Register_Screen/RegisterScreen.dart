@@ -1,16 +1,15 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
 import 'package:vets_club/pages/Register_Screen/RegisterScreenViewModel.dart';
-import '../../configurations/alert_dialog.dart';
+import '../../configurations/regex.dart';
 import '../../configurations/themes.dart';
 import '../../widgets/elevated_btn.dart';
 import '../../widgets/textField.dart';
-import 'RegisterScreenService.dart';
 
 class RegisterScreen extends StatefulWidget {
-  static const String routeName = 'Register';
+  static const String routeName = '/Register';
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -69,6 +68,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       validator: (email) {
                         if (email == null || email.trim().isEmpty) {
                           return 'Email Address must not be empty';
+                        }
+                        if(RegexValidate.isValidEmail(email) == false){
+                          return 'Email Address is not valid';
                         }
                         return null;
                       },
@@ -187,8 +189,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       TextButton(
                           onPressed: () {
-                            Navigator.pushReplacementNamed(
-                                context, LoginScreen.routeName);
+                            Get.toNamed(LoginScreen.routeName);
                           },
                           child: Text(
                             'Login'.toUpperCase(),
