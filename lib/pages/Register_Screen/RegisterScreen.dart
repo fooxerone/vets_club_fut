@@ -189,7 +189,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       TextButton(
                           onPressed: () {
-                            Get.toNamed(LoginScreen.routeName);
+                            Get.offNamed(LoginScreen.routeName);
                           },
                           child: Text(
                             'Login'.toUpperCase(),

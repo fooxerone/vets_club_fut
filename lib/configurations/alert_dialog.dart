@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:lottie/lottie.dart';
 import 'package:vets_club/configurations/themes.dart';
 
 showMessage(BuildContext context,
@@ -37,14 +38,7 @@ void showLoading(BuildContext context,
           elevation: 0,
           backgroundColor: Colors.transparent,
           alignment: Alignment.center,
-          content: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircularProgressIndicator(
-               color: MyTheme.lightBlue,
-              ),
-            ],
-          ),
+          content: Lottie.asset('assets/loading.json'),
         );
       },
       barrierDismissible: isCancelable);

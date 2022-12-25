@@ -19,7 +19,7 @@ class _FormScreenState extends State<FormScreen> {
 
   void restartApp() {
     setState(() {
-      key;
+      key = UniqueKey();
     });
   }
 
@@ -106,40 +106,38 @@ class _FormScreenState extends State<FormScreen> {
                   label: 'Owner',
                   controller: ownerControl,
                   keyboardType: TextInputType.text),
-              SizedBox(
-                height: height,
-                child: ListView.separated(
-                  physics: NeverScrollableScrollPhysics(),
-                  separatorBuilder: (context, index) => SizedBox(height: size.height * 0.026,),
-                    itemBuilder: (context, index) {
-                      return SizedBox(
-                        child: Row(
-                          children: [
-                            Expanded(
-                                child: SizedBox(
-                                  height: size.height * 0.06,
-                                  child: TextFieldWidget(
-                                      label: 'Vet Name ${index+1}',
-                                      controller: ownerControl,
-                                      keyboardType: TextInputType.text),
-                                )),
-                            SizedBox(width: size.width * 0.015,),
-                            Expanded(
-                                child: SizedBox(
-                                  height: size.height * 0.06,
-                                  child: TextFieldWidget(
-                                      label: 'Qualification ${index+1}',
-                                      controller: ownerControl,
-                                      keyboardType: TextInputType.text),
-                                )),
-                          ],
-                        ),
-                      );
-                    },
-                    itemCount: index),
-              ),
-             index == 0? SizedBox(
-                height: size.height * 0.03,
+              ListView.separated(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                separatorBuilder: (context, index) => SizedBox(height: size.height * 0.026,),
+                  itemBuilder: (context, index) {
+                    return SizedBox(
+                      child: Row(
+                        children: [
+                          Expanded(
+                              child: SizedBox(
+                                height: size.height * 0.06,
+                                child: TextFieldWidget(
+                                    label: 'Vet Name ${index+1}',
+                                    controller: ownerControl,
+                                    keyboardType: TextInputType.text),
+                              )),
+                          SizedBox(width: size.width * 0.015,),
+                          Expanded(
+                              child: SizedBox(
+                                height: size.height * 0.06,
+                                child: TextFieldWidget(
+                                    label: 'Qualification ${index+1}',
+                                    controller: ownerControl,
+                                    keyboardType: TextInputType.text),
+                              )),
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: index),
+             index > 0? SizedBox(
+                height: size.height * 0.015,
               ) : SizedBox(
                height:0,
              ),
@@ -155,8 +153,6 @@ class _FormScreenState extends State<FormScreen> {
                   IconBtn(
                       onPressed: () {
                         index++;
-                       index == 1  ? height += 85 : height+= 75;
-                        print(height);
                         setState(() {});
                       },
                       icon: Icons.add)

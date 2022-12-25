@@ -117,7 +117,7 @@ class _PackageScreenState extends State<PackageScreen> {
                         'desdesdesdesdesdesdes'
                             'desdesdesdesdesdes',
                         () {
-                          Get.toNamed(FormScreen.routeName);
+                          Get.offNamed(FormScreen.routeName);
                         });
                   },
                   child: Card(

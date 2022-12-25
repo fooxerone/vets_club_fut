@@ -23,7 +23,7 @@ class RegisterProvider extends ChangeNotifier{
     );
     hideLoading(context);
     if(auth.stat?.regestersuccess == true){
-      Get.toNamed(InfoScreen.routeName);
+      Get.offNamed(InfoScreen.routeName);
     }
     else{
       showMessage(context, dialogType: DialogType.error, desc: auth.message??'',btnOkOnPress: (){

@@ -52,7 +52,7 @@ class InfoScreen extends StatelessWidget {
                 ),
               ),
               ElevatedBtn(title: 'Next'.toUpperCase(), onPressed: () {
-                Get.toNamed(PackageScreen.routeName);
+                Get.offNamed(PackageScreen.routeName);
               }),
             ],
           ),
