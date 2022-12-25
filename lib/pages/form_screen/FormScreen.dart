@@ -272,162 +272,168 @@ class _FormScreenState extends State<FormScreen> {
               SizedBox(
                 height: size.height * 0.03,
               ),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: size.height * 0.0095),
-                height: size.height * 0.198,
-                decoration: BoxDecoration(
-                    color: MyTheme.lightBlue,
-                    borderRadius: BorderRadius.circular(15)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: size.height * 0.009),
-                      child: Text(
-                        'Clinic Type',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyLarge
-                            ?.copyWith(color: Colors.black),
-                      ),
-                    ),
-                    SizedBox(height: size.height * 0.01),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Wrap(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.symmetric(vertical: size.height * 0.0095),
+                    decoration: BoxDecoration(
+                        color: MyTheme.lightBlue,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: CheckBoxListTile(
-                              text: 'Mobile Clinic',
-                              onChanged: (value) {
-                                isMobile = value ?? false;
-                                if (isMobile == true) {
-                                  clinicType.add('Mobile Clinic');
-                                } else {
-                                  clinicType.remove('Mobile Clinic');
-                                }
-                                setState(() {});
-                              },
-                              value: isMobile),
+                        Padding(
+                          padding: EdgeInsets.only(left: size.height * 0.009),
+                          child: Text(
+                            'Clinic Type',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge
+                                ?.copyWith(color: Colors.black),
+                          ),
                         ),
-                        Expanded(
-                          child: CheckBoxListTile(
-                              text: 'Static Clinic',
-                              onChanged: (value) {
-                                isStatic = value ?? false;
-                                if (isStatic == true) {
-                                  clinicType.add('Static Clinic');
-                                } else {
-                                  clinicType.remove('Static Clinic');
-                                }
-                                setState(() {});
-                              },
-                              value: isStatic),
+                        SizedBox(height: size.height * 0.01),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: CheckBoxListTile(
+                                  text: 'Mobile Clinic',
+                                  onChanged: (value) {
+                                    isMobile = value ?? false;
+                                    if (isMobile == true) {
+                                      clinicType.add('Mobile Clinic');
+                                    } else {
+                                      clinicType.remove('Mobile Clinic');
+                                    }
+                                    setState(() {});
+                                  },
+                                  value: isMobile),
+                            ),
+                            Expanded(
+                              child: CheckBoxListTile(
+                                  text: 'Static Clinic',
+                                  onChanged: (value) {
+                                    isStatic = value ?? false;
+                                    if (isStatic == true) {
+                                      clinicType.add('Static Clinic');
+                                    } else {
+                                      clinicType.remove('Static Clinic');
+                                    }
+                                    setState(() {});
+                                  },
+                                  value: isStatic),
+                            ),
+                          ],
                         ),
+                        CheckBoxListTile(
+                            text: 'Hospital',
+                            onChanged: (value) {
+                              isHospital = value ?? false;
+                              if (isHospital == true) {
+                                clinicType.add('Hospital');
+                              } else {
+                                clinicType.remove('Hospital');
+                              }
+                              setState(() {});
+                            },
+                            value: isHospital),
                       ],
                     ),
-                    CheckBoxListTile(
-                        text: 'Hospital',
-                        onChanged: (value) {
-                          isHospital = value ?? false;
-                          if (isHospital == true) {
-                            clinicType.add('Hospital');
-                          } else {
-                            clinicType.remove('Hospital');
-                          }
-                          setState(() {});
-                        },
-                        value: isHospital),
-                  ],
-                ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: size.height * 0.03,
               ),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(size.height * 0.0095),
-                height: size.height * 0.3,
-                decoration: BoxDecoration(
-                    color: MyTheme.lightBlue,
-                    borderRadius: BorderRadius.circular(15)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Location',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge
-                          ?.copyWith(color: Colors.black),
-                    ),
-                    SizedBox(
-                      height: size.height * 0.03,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Wrap(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(size.height * 0.0095),
+                    decoration: BoxDecoration(
+                        color: MyTheme.lightBlue,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Text(
+                          'Location',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.copyWith(color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: size.height * 0.03,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'Country',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium
-                                  ?.copyWith(fontSize: 18, color: Colors.black),
-                            ),
-                            Container(
-                              color: Color(0xFFE2EFF1),
-                              child: DropdownButton(
-                                dropdownColor: Colors.white,
-                                focusColor: Colors.black,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall
-                                    ?.copyWith(fontSize: 15),
-                                value: countrySelected,
-                                items: country.map((String val) {
-                                  return DropdownMenuItem<String>(
-                                    value: val,
-                                    child: Text(val),
-                                  );
-                                }).toList(),
-                                onChanged: (value) {
-                                  setState(() {
-                                    countrySelected = value.toString();
-                                  });
-                                },
-                              ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Country',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(fontSize: 18, color: Colors.black),
+                                ),
+                                Container(
+                                  color: Color(0xFFE2EFF1),
+                                  child: DropdownButton(
+                                    dropdownColor: Colors.white,
+                                    focusColor: Colors.black,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall
+                                        ?.copyWith(fontSize: 15),
+                                    value: countrySelected,
+                                    items: country.map((String val) {
+                                      return DropdownMenuItem<String>(
+                                        value: val,
+                                        child: Text(val),
+                                      );
+                                    }).toList(),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        countrySelected = value.toString();
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
+                        Text(
+                          'Cities',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(fontSize: 18),
+                        ),
+                        DropdownButton(
+                          style: Theme.of(context).textTheme.bodyMedium,
+                          value: CitiesSelected,
+                          items: Cities.map((String val) {
+                            return DropdownMenuItem<String>(
+                              value: val,
+                              child: Text(val),
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              CitiesSelected = value.toString();
+                            });
+                          },
+                        ),
                       ],
                     ),
-                    Text(
-                      'Cities',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(fontSize: 18),
-                    ),
-                    DropdownButton(
-                      style: Theme.of(context).textTheme.bodyMedium,
-                      value: CitiesSelected,
-                      items: Cities.map((String val) {
-                        return DropdownMenuItem<String>(
-                          value: val,
-                          child: Text(val),
-                        );
-                      }).toList(),
-                      onChanged: (value) {
-                        setState(() {
-                          CitiesSelected = value.toString();
-                        });
-                      },
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: size.height * 0.03,

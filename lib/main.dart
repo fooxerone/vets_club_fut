@@ -60,7 +60,6 @@ class MyApp extends StatelessWidget {
             ),
             GetPage(name: RegisterScreen.routeName, page:() =>  RegisterScreen(),
               transition: Transition.rightToLeftWithFade,
-
             ),
         ],
           initialRoute: FormScreen.routeName,
