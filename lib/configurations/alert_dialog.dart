@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:vets_club/configurations/themes.dart';
 
@@ -21,7 +22,7 @@ showMessage(BuildContext context,
         color: Colors.red
       ),
       titleTextStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
-        fontSize: 22
+        fontSize: 22.sp
       ),
       btnOkColor: MyTheme.purple,
       dialogBackgroundColor: Color(0xFFE2EFF1)

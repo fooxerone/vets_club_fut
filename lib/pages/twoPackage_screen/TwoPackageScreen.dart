@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vets_club/configurations/themes.dart';
 import 'package:vets_club/pages/clinic_home_screen/ClinicHomeScreen.dart';
 
@@ -31,7 +32,7 @@ class TwoPackageScreen extends StatelessWidget {
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: (){
-                      Navigator.pushNamed(context, ClinicHomeScreen.routeName);
+                        Get.toNamed(ClinicHomeScreen.routeName);
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(

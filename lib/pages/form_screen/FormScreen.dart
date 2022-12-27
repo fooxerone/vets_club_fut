@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_select_items/flutter_multi_select_items.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:vets_club/configurations/themes.dart';
+import 'package:vets_club/pages/twoPackage_screen/TwoPackageScreen.dart';
 import 'package:vets_club/widgets/checkbox_listTile.dart';
 import 'package:vets_club/widgets/elevated_btn.dart';
 import 'package:vets_club/widgets/iconBtn.dart';
@@ -74,7 +77,7 @@ class _FormScreenState extends State<FormScreen> {
                 'Promote Your Vet Clinic',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      fontSize: 36,
+                      fontSize: 36.sp,
                       fontWeight: FontWeight.normal,
                     ),
               ),
@@ -169,7 +172,7 @@ class _FormScreenState extends State<FormScreen> {
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall
-                        ?.copyWith(fontSize: 16),
+                        ?.copyWith(fontSize: 16.sp),
                   ),
                   Spacer(),
                   IconBtn(
@@ -196,7 +199,7 @@ class _FormScreenState extends State<FormScreen> {
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall
-                        ?.copyWith(fontSize: 16),
+                        ?.copyWith(fontSize: 16.sp),
                   ),
                   Spacer(),
                   IconBtn(
@@ -225,7 +228,7 @@ class _FormScreenState extends State<FormScreen> {
                     style: Theme.of(context)
                         .textTheme
                         .bodyLarge
-                        ?.copyWith(fontSize: 18, color: Colors.black),
+                        ?.copyWith(fontSize: 18.sp, color: Colors.black),
                   ),
                   SizedBox(
                     height: size.height * 0.02,
@@ -375,7 +378,7 @@ class _FormScreenState extends State<FormScreen> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium
-                                      ?.copyWith(fontSize: 18, color: Colors.black),
+                                      ?.copyWith(fontSize: 18.sp, color: Colors.black),
                                 ),
                                 Container(
                                   color: Color(0xFFE2EFF1),
@@ -385,7 +388,7 @@ class _FormScreenState extends State<FormScreen> {
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodySmall
-                                        ?.copyWith(fontSize: 15),
+                                        ?.copyWith(fontSize: 15.sp),
                                     value: countrySelected,
                                     items: country.map((String val) {
                                       return DropdownMenuItem<String>(
@@ -409,7 +412,7 @@ class _FormScreenState extends State<FormScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium
-                              ?.copyWith(fontSize: 18),
+                              ?.copyWith(fontSize: 18.sp),
                         ),
                         DropdownButton(
                           style: Theme.of(context).textTheme.bodyMedium,
@@ -451,7 +454,7 @@ class _FormScreenState extends State<FormScreen> {
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall
-                        ?.copyWith(fontSize: 16),
+                        ?.copyWith(fontSize: 16.sp),
                   ),
                   Spacer(),
                   IconBtn(
@@ -472,7 +475,7 @@ class _FormScreenState extends State<FormScreen> {
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall
-                        ?.copyWith(fontSize: 16),
+                        ?.copyWith(fontSize: 16.sp),
                   ),
                   Spacer(),
                   IconBtn(
@@ -485,7 +488,9 @@ class _FormScreenState extends State<FormScreen> {
               SizedBox(
                 height: size.height * 0.05,
               ),
-              ElevatedBtn(title: 'next', onPressed: () {})
+              ElevatedBtn(title: 'next', onPressed: () {
+                Get.offNamed(TwoPackageScreen.routeName);
+              })
             ],
           ),
         ),

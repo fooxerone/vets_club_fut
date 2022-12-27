@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vets_club/configurations/themes.dart';
 
 class ElevatedBtn extends StatelessWidget {
@@ -18,7 +19,7 @@ class ElevatedBtn extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .bodyMedium
-              ?.copyWith(fontSize: 24, fontWeight: FontWeight.normal),
+              ?.copyWith(fontSize: 24.sp, fontWeight: FontWeight.normal),
         ),
       ),
       style: ButtonStyle(

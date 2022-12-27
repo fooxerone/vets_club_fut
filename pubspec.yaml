@@ -43,6 +43,7 @@ dependencies:
   page_transition: ^2.0.9
   get: ^4.6.5
   lottie: ^1.4.2
+  flutter_screenutil: ^5.6.0
 
 dev_dependencies:
   flutter_test:

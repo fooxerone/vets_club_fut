@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vets_club/pages/form_screen/FormScreen.dart';
-
 import '../../configurations/modal_sheet.dart';
 import '../../configurations/themes.dart';
 
@@ -77,7 +77,7 @@ class _PackageScreenState extends State<PackageScreen> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium
-                                      ?.copyWith(fontSize: 13),
+                                      ?.copyWith(fontSize: 13.sp),
                                 ),
                                 SizedBox(
                                   height: size.height * 0.05,
@@ -87,7 +87,7 @@ class _PackageScreenState extends State<PackageScreen> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium
-                                      ?.copyWith(fontSize: 13),
+                                      ?.copyWith(fontSize: 13.sp),
                                 ),
                               ],
                             );
@@ -146,7 +146,7 @@ class _PackageScreenState extends State<PackageScreen> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium
-                                      ?.copyWith(fontSize: 13),
+                                      ?.copyWith(fontSize: 13.sp),
                                 ),
                                 SizedBox(
                                   height: size.height * 0.05,
@@ -156,7 +156,7 @@ class _PackageScreenState extends State<PackageScreen> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium
-                                      ?.copyWith(fontSize: 13),
+                                      ?.copyWith(fontSize: 13.sp),
                                 ),
                               ],
                             );
@@ -213,7 +213,7 @@ class _PackageScreenState extends State<PackageScreen> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium
-                                      ?.copyWith(fontSize: 13),
+                                      ?.copyWith(fontSize: 13.sp),
                                 ),
                                 SizedBox(
                                   height: size.height * 0.05,
@@ -223,7 +223,7 @@ class _PackageScreenState extends State<PackageScreen> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium
-                                      ?.copyWith(fontSize: 13),
+                                      ?.copyWith(fontSize: 13.sp),
                                 ),
                               ],
                             );

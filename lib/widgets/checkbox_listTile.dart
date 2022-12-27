@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CheckBoxListTile extends StatelessWidget {
   String text;
@@ -15,7 +16,7 @@ class CheckBoxListTile extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .bodySmall
-              ?.copyWith(fontSize: 16),
+              ?.copyWith(fontSize: 16.sp),
         ),
         controlAffinity: ListTileControlAffinity.leading,
         value: value,

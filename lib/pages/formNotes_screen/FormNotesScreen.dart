@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_select_items/flutter_multi_select_items.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../configurations/themes.dart';
@@ -52,7 +53,7 @@ class _FormNotesScreenState extends State<FormNotesScreen> {
               Text('Promote Your Vet Clinic',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  fontSize: 36,
+                  fontSize: 36.sp,
                   fontWeight: FontWeight.normal,
                 ),
               ),
@@ -87,7 +88,7 @@ class _FormNotesScreenState extends State<FormNotesScreen> {
                     style: Theme.of(context)
                         .textTheme
                         .bodyLarge
-                        ?.copyWith(fontSize: 18, color: Colors.black),
+                        ?.copyWith(fontSize: 18.sp, color: Colors.black),
                   ),
                   SizedBox(
                     height: size.height * 0.02,
@@ -243,7 +244,7 @@ class _FormNotesScreenState extends State<FormNotesScreen> {
                 Text('Clinic Activity Location',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: Colors.black,
-                      fontSize: 16
+                      fontSize: 16.sp
                   ),
                 ),
                 Row(
@@ -260,7 +261,7 @@ class _FormNotesScreenState extends State<FormNotesScreen> {
                 children: [
                   Text('Picture of Clinic (Logo)',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        fontSize: 16
+                        fontSize: 16.sp
                     ),
                   ),
                   Spacer(),

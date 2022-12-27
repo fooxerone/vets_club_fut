@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+import 'package:vets_club/pages/patients_layout/patients_layout.dart';
 import '../../configurations/themes.dart';
 
 class ClinicHomeScreen extends StatelessWidget {
-  static const String routeName = 'clinicHome';
+  static const String routeName = '/clinicHome';
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class ClinicHomeScreen extends StatelessWidget {
                 InkWell(
                   borderRadius: BorderRadius.circular(20),
                   onTap: (){
-
+                    Get.toNamed(PatientsLayout.routeName);
                   },
                   child: Card(
                     shape: RoundedRectangleBorder(

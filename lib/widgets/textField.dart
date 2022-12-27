@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vets_club/configurations/themes.dart';
 
 class TextFieldWidget extends StatelessWidget {
@@ -37,10 +38,10 @@ class TextFieldWidget extends StatelessWidget {
           fillColor: MyTheme.lightBlue,
           labelText: label,
           labelStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
-            fontSize: 16
+            fontSize: 16.sp
           ),
           errorStyle: TextStyle(
-            fontSize: 14
+            fontSize: 14.sp
           ),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25),

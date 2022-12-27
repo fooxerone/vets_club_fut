@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
@@ -185,7 +186,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             .bodyMedium
                             ?.copyWith(
                                 fontWeight: FontWeight.normal,
-                                fontSize: 15),
+                                fontSize: 15.sp),
                       ),
                       TextButton(
                           onPressed: () {
@@ -196,7 +197,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium
-                                ?.copyWith(fontSize: 15),
+                                ?.copyWith(fontSize: 15.sp),
                           )),
                     ],
                   ),

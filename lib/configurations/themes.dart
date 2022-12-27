@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme{
@@ -13,7 +14,7 @@ class MyTheme{
       elevation: 0,
       centerTitle: true,
       titleTextStyle: GoogleFonts.juliusSansOne(
-        fontSize: 24,
+        fontSize: 24.sp,
         color: Colors.white
       ),
       iconTheme: IconThemeData(
@@ -24,17 +25,38 @@ class MyTheme{
     scaffoldBackgroundColor: Color(0xFFE2EFF1),
     textTheme: TextTheme(
       bodySmall: GoogleFonts.k2d(
-        fontSize: 18,
+        fontSize: 18.sp,
             color: Colors.black,
           ),
         bodyMedium: GoogleFonts.juliusSansOne(
-          fontSize: 16,
+          fontSize: 16.sp,
           color: purple,
           fontWeight: FontWeight.bold
         ),
         titleLarge: GoogleFonts.juliusSansOne(
-            fontSize: 32, color: purple, fontWeight: FontWeight.normal),
+            fontSize: 32.sp, color: purple, fontWeight: FontWeight.normal),
         bodyLarge: GoogleFonts.juliusSansOne(
-            fontSize: 24, color: purple, fontWeight: FontWeight.bold))
+            fontSize: 24.sp, color: purple, fontWeight: FontWeight.bold)),
+
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: lightBlue,
+      shape: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: BorderSide(
+          color: boldBlue,
+          width: 1
+        )
+      )
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+      backgroundColor: Colors.transparent,
+      elevation: 0
+    ),
+    bottomAppBarTheme: BottomAppBarTheme(
+      color: MyTheme.purple,
+      shape: CircularNotchedRectangle(),
+    )
   );
 }

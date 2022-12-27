@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:vets_club/configurations/regex.dart';
 import 'package:vets_club/configurations/themes.dart';
@@ -126,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           .textTheme
                           .bodyMedium
                           ?.copyWith(fontWeight: FontWeight.normal,
-                        fontSize: 15
+                        fontSize: 15.sp
                       ),
                     ),
                     TextButton(
@@ -137,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           'Register'.toUpperCase(),
                           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            fontSize: 15
+                            fontSize: 15.sp
                           ),
                         )),
                   ],
