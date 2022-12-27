@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:vets_club/configurations/themes.dart';
+import 'package:vets_club/pages/Items&processes_Layout/Items&processes_Layout.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreenViewModel.dart';
 import 'package:vets_club/pages/Register_Screen/RegisterScreen.dart';
@@ -38,16 +39,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: MyTheme.lightTheme,
         title: 'Vets club',
-        /* routes: {
-            LoginScreen.routeName: (_) => LoginScreen(),
-            RegisterScreen.routeName: (_) => RegisterScreen(),
-            InfoScreen.routeName: (_) => InfoScreen(),
-            FormScreen.routeName: (_) => FormScreen(),
-            PackageScreen.routeName: (_) => PackageScreen(),
-            FormNotesScreen.routeName: (_) => FormNotesScreen(),
-            TwoPackageScreen.routeName: (_) => TwoPackageScreen(),
-            ClinicHomeScreen.routeName: (_) => ClinicHomeScreen(),
-          },*/
         getPages: [
           GetPage(name: LoginScreen.routeName, page: () => LoginScreen(),
               transition: Transition.fadeIn
@@ -76,6 +67,9 @@ class MyApp extends StatelessWidget {
             transition: Transition.rightToLeftWithFade,
           ),
           GetPage(name: PatientsLayout.routeName, page: () => PatientsLayout(),
+            transition: Transition.rightToLeftWithFade,
+          ),
+          GetPage(name: ItemsAndProcessesLayout.routeName, page: () => ItemsAndProcessesLayout(),
             transition: Transition.rightToLeftWithFade,
           ),
         ],

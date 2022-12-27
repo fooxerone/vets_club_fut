@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:vets_club/pages/patients_layout/patients_layout.dart';
 import '../../configurations/themes.dart';
 import '../../widgets/arrowBack.dart';
+import '../Items&processes_Layout/Items&processes_Layout.dart';
 
 class ClinicHomeScreen extends StatelessWidget {
   static const String routeName = '/clinicHome';
@@ -38,7 +39,7 @@ class ClinicHomeScreen extends StatelessWidget {
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)
+                          borderRadius: BorderRadius.circular(20).w
                       ),
                       elevation: 4,
                       color: Colors.transparent,
@@ -48,7 +49,7 @@ class ClinicHomeScreen extends StatelessWidget {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             color: MyTheme.lightBlue,
-                            borderRadius: BorderRadius.circular(20)),
+                            borderRadius: BorderRadius.circular(20).w),
                         child: Text(
                           'Patients',
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -60,13 +61,13 @@ class ClinicHomeScreen extends StatelessWidget {
                   ),
                  Spacer(),
                   InkWell(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20).w,
                     onTap: (){
 
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)
+                          borderRadius: BorderRadius.circular(20).w
                       ),
                       elevation: 4,
                       color: Colors.transparent,
@@ -77,7 +78,7 @@ class ClinicHomeScreen extends StatelessWidget {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             color: MyTheme.lightBlue,
-                            borderRadius: BorderRadius.circular(20)),
+                            borderRadius: BorderRadius.circular(20).w),
                         child: Text(
                           'Owners',
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -95,13 +96,13 @@ class ClinicHomeScreen extends StatelessWidget {
               Row(
                 children: [
                   InkWell(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20).w,
                     onTap: (){
 
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)
+                          borderRadius: BorderRadius.circular(20).w
                       ),
                       elevation: 4,
                       color: Colors.transparent,
@@ -111,7 +112,7 @@ class ClinicHomeScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: MyTheme.lightBlue,
-                          borderRadius: BorderRadius.circular(20)),
+                          borderRadius: BorderRadius.circular(20).w),
                       child: Text(
                         'Drugs',
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -123,13 +124,13 @@ class ClinicHomeScreen extends StatelessWidget {
                   ),
                  Spacer(),
                   InkWell(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20).w,
                     onTap: (){
-
+                        Get.toNamed(ItemsAndProcessesLayout.routeName);
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)
+                          borderRadius: BorderRadius.circular(20).w
                       ),
                       elevation: 4,
                       color: Colors.transparent,
@@ -139,7 +140,7 @@ class ClinicHomeScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: MyTheme.lightBlue,
-                          borderRadius: BorderRadius.circular(20)),
+                          borderRadius: BorderRadius.circular(20).w),
                       child: Text(
                         'Items & Processes',
                         textAlign: TextAlign.center,
@@ -156,13 +157,13 @@ class ClinicHomeScreen extends StatelessWidget {
                 height: size.height * 0.04,
               ),
               InkWell(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20).w,
                 onTap: (){
 
                 },
                 child: Card(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
+                      borderRadius: BorderRadius.circular(20).w
                   ),
                   elevation: 4,
                   color: Colors.transparent,
@@ -172,7 +173,7 @@ class ClinicHomeScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: MyTheme.lightBlue,
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(20).w),
                   child: Text(
                     'Inventory',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(

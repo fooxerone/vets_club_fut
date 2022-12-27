@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_select_items/flutter_multi_select_items.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,7 +46,6 @@ class _FormScreenState extends State<FormScreen> {
   double height = 0;
 
   List<String> country = [
-    'Choose Country',
     'Country 1',
     'Country 2',
     'Country 3',
@@ -368,7 +368,6 @@ class _FormScreenState extends State<FormScreen> {
                           height: size.height * 0.03,
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -382,69 +381,111 @@ class _FormScreenState extends State<FormScreen> {
                                       fontSize: 18, color: Colors.black),
                                 ),
                                 Container(
-                                  child: DropdownButton(
-                                    focusColor: Colors.black,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall
-                                        ?.copyWith(fontSize: 15),
-                                    value: countrySelected,
-                                    items: country.map((String val) {
-                                      return DropdownMenuItem<String>(
-                                        value: val,
-                                        child: Text(val),
-                                      );
-                                    }).toList(),
+                                  width: size.width * 0.45,
+                                  child:  DropdownButtonFormField2(
+                                    decoration: InputDecoration(
+                                     isDense: true,
+                                      contentPadding: EdgeInsets.zero,
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+
+                                       ),
+                                    hint: Text(
+                                        'Choose Country',
+                                      style: TextStyle(fontSize: 14),
+                                    ),
+                                    icon: Icon(
+                                      Icons.arrow_drop_down,
+                                      color: Colors.black45,
+                                    ),
+                                    iconSize: 30,
+                                    buttonHeight: 60,
+                                    dropdownDecoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    items: country
+                                        .map((item) =>
+                                        DropdownMenuItem<String>(
+                                          value: item,
+                                          child: Text(
+                                            item,
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ))
+                                        .toList(),
+                                    validator: (value) {
+                                      if (value == null) {
+                                        return 'Please select gender.';
+                                      }
+                                    },
                                     onChanged: (value) {
-                                      setState(() {
-                                        countrySelected = value.toString();
-                                      });
+                                      //Do something when changing the item if you want.
                                     },
                                   ),
                                 ),
+
                               ],
-                            ),
-                            Column(
+                            ),  Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Governorate',
+                                  'Country',
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium
                                       ?.copyWith(
                                       fontSize: 18, color: Colors.black),
                                 ),
-                                Wrap(
-                                  children: [
-                                    Container(
-                                      child: DropdownButton(
-                                        focusColor: Colors.black,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodySmall
-                                            ?.copyWith(fontSize: 15),
-                                        value: GovernorateySelected,
-                                        items: Governorate.map((String val) {
-                                          return DropdownMenuItem<String>(
-                                            value: val,
-                                            child: Text(val),
-                                          );
-                                        }).toList(),
-                                        onChanged: (value) {
-                                          setState(() {
-                                            countrySelected = value.toString();
-                                          });
-                                        },
+                                Container(
+                                  width: size.width * 0.45,
+                                  child:  DropdownButtonFormField2(
+                                    decoration: InputDecoration(
+                                     isDense: true,
+                                      contentPadding: EdgeInsets.zero,
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
-                                      padding: EdgeInsets.all(8),
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFE2EFF1),
-                                        borderRadius: BorderRadius.circular(10).w
-                                      ),
+
+                                       ),
+                                    hint: Text(
+                                        'Choose Country',
+                                      style: TextStyle(fontSize: 14),
                                     ),
-                                  ],
+                                    icon: Icon(
+                                      Icons.arrow_drop_down,
+                                      color: Colors.black45,
+                                    ),
+                                    iconSize: 30,
+                                    buttonHeight: 60,
+                                    dropdownDecoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    items: country
+                                        .map((item) =>
+                                        DropdownMenuItem<String>(
+                                          value: item,
+                                          child: Text(
+                                            item,
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ))
+                                        .toList(),
+                                    validator: (value) {
+                                      if (value == null) {
+                                        return 'Please select gender.';
+                                      }
+                                    },
+                                    onChanged: (value) {
+                                      //Do something when changing the item if you want.
+                                    },
+                                  ),
                                 ),
+
                               ],
                             ),
                           ],

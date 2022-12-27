@@ -40,10 +40,10 @@ dependencies:
   provider: ^6.0.5
   image_picker: ^0.8.6
   flutter_multi_select_items: ^0.4.2
-  page_transition: ^2.0.9
   get: ^4.6.5
   lottie: ^1.4.2
   flutter_screenutil: ^5.6.0
+  dropdown_button2: ^1.9.2
 
 dev_dependencies:
   flutter_test:
