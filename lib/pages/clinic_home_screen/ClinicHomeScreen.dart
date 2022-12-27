@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vets_club/pages/patients_layout/patients_layout.dart';
 import '../../configurations/themes.dart';
+import '../../widgets/arrowBack.dart';
 
 class ClinicHomeScreen extends StatelessWidget {
   static const String routeName = '/clinicHome';
@@ -12,12 +13,9 @@ class ClinicHomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Clinic Name'),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: ImageIcon(AssetImage('assets/arrow_back.png')),
-        ),
+        leading: ArrowBackIcon((){
+          Navigator.pop(context);
+        })
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: size.height * 0.023,vertical: size.height * 0.023),
