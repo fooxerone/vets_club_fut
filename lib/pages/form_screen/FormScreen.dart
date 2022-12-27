@@ -140,7 +140,7 @@ class _FormScreenState extends State<FormScreen> {
                   },
                   itemCount: index),
              index > 0? SizedBox(
-                height: size.height * 0.015,
+                height: size.height * 0.03,
               ) : SizedBox(
                height:0,
              ),
@@ -150,7 +150,7 @@ class _FormScreenState extends State<FormScreen> {
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall
-                        ?.copyWith(fontSize: 16),
+                        ?.copyWith(fontSize: 16.sp),
                   ),
                   Spacer(),
                   IconBtn(
@@ -172,20 +172,20 @@ class _FormScreenState extends State<FormScreen> {
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall
-                        ?.copyWith(fontSize: 16.sp),
+                        ?.copyWith(fontSize: 15.sp),
                   ),
                   Spacer(),
                   IconBtn(
                       onPressed: () async {
-                        images = await picker.pickMultiImage();
+                        camera = await picker.pickImage(source: ImageSource.camera);
                       },
                       icon: Icons.camera_alt_outlined),
                   IconBtn(
                       onPressed: () async {
-                        camera =
-                            await picker.pickImage(source: ImageSource.camera);
+                        images = await picker.pickMultiImage();
+
                       },
-                      icon: Icons.videocam_outlined)
+                      icon: Icons.photo)
                 ],
               ),
               SizedBox(
@@ -204,15 +204,15 @@ class _FormScreenState extends State<FormScreen> {
                   Spacer(),
                   IconBtn(
                       onPressed: () async {
-                        images = await picker.pickMultiImage();
+                        camera = await picker.pickImage(source: ImageSource.camera);
                       },
                       icon: Icons.camera_alt_outlined),
                   IconBtn(
                       onPressed: () async {
-                        camera =
-                        await picker.pickImage(source: ImageSource.camera);
+                        images = await picker.pickMultiImage();
+
                       },
-                      icon: Icons.videocam_outlined)
+                      icon: Icons.photo)
                 ],
               ),
               SizedBox(
@@ -250,7 +250,7 @@ class _FormScreenState extends State<FormScreen> {
                     children: [
                       Expanded(
                         child: TextFieldWidget(
-                          label: 'Other Animals',
+                          label: 'Add Field Speciality',
                           controller: animalController,
                           keyboardType: TextInputType.text,
                         ),
@@ -278,7 +278,7 @@ class _FormScreenState extends State<FormScreen> {
                     padding: EdgeInsets.symmetric(vertical: size.height * 0.0095),
                     decoration: BoxDecoration(
                         color: MyTheme.lightBlue,
-                        borderRadius: BorderRadius.circular(15)),
+                        borderRadius: BorderRadius.circular(15).w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -353,7 +353,7 @@ class _FormScreenState extends State<FormScreen> {
                     padding: EdgeInsets.all(size.height * 0.0095),
                     decoration: BoxDecoration(
                         color: MyTheme.lightBlue,
-                        borderRadius: BorderRadius.circular(15)),
+                        borderRadius: BorderRadius.circular(15).w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -378,17 +378,16 @@ class _FormScreenState extends State<FormScreen> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium
-                                      ?.copyWith(fontSize: 18.sp, color: Colors.black),
+                                      ?.copyWith(
+                                      fontSize: 18, color: Colors.black),
                                 ),
                                 Container(
-                                  color: Color(0xFFE2EFF1),
                                   child: DropdownButton(
-                                    dropdownColor: Colors.white,
                                     focusColor: Colors.black,
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodySmall
-                                        ?.copyWith(fontSize: 15.sp),
+                                        ?.copyWith(fontSize: 15),
                                     value: countrySelected,
                                     items: country.map((String val) {
                                       return DropdownMenuItem<String>(
@@ -405,6 +404,49 @@ class _FormScreenState extends State<FormScreen> {
                                 ),
                               ],
                             ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Governorate',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                      fontSize: 18, color: Colors.black),
+                                ),
+                                Wrap(
+                                  children: [
+                                    Container(
+                                      child: DropdownButton(
+                                        focusColor: Colors.black,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall
+                                            ?.copyWith(fontSize: 15),
+                                        value: GovernorateySelected,
+                                        items: Governorate.map((String val) {
+                                          return DropdownMenuItem<String>(
+                                            value: val,
+                                            child: Text(val),
+                                          );
+                                        }).toList(),
+                                        onChanged: (value) {
+                                          setState(() {
+                                            countrySelected = value.toString();
+                                          });
+                                        },
+                                      ),
+                                      padding: EdgeInsets.all(8),
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFE2EFF1),
+                                        borderRadius: BorderRadius.circular(10).w
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                         Text(
@@ -412,11 +454,15 @@ class _FormScreenState extends State<FormScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium
-                              ?.copyWith(fontSize: 18.sp),
+                              ?.copyWith(fontSize: 18, color: Colors.black),
                         ),
                         DropdownButton(
-                          style: Theme.of(context).textTheme.bodyMedium,
                           value: CitiesSelected,
+                          focusColor: Colors.black,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall
+                              ?.copyWith(fontSize: 15),
                           items: Cities.map((String val) {
                             return DropdownMenuItem<String>(
                               value: val,
@@ -450,7 +496,7 @@ class _FormScreenState extends State<FormScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Picture of Clinic',
+                    'Picture of Clinic (Logo)',
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall
@@ -459,9 +505,15 @@ class _FormScreenState extends State<FormScreen> {
                   Spacer(),
                   IconBtn(
                       onPressed: () async {
-                        images = await picker.pickMultiImage();
+                        camera = await picker.pickImage(source: ImageSource.camera);
                       },
                       icon: Icons.camera_alt_outlined),
+                  IconBtn(
+                      onPressed: () async {
+                        images = await picker.pickMultiImage();
+
+                      },
+                      icon: Icons.photo)
                 ],
               ),
               SizedBox(
@@ -480,9 +532,14 @@ class _FormScreenState extends State<FormScreen> {
                   Spacer(),
                   IconBtn(
                       onPressed: () async {
-                        images = await picker.pickMultiImage();
+                        camera = await picker.pickImage(source: ImageSource.camera);
                       },
                       icon: Icons.camera_alt_outlined),
+                  IconBtn(
+                      onPressed: () async {
+                        images = await picker.pickMultiImage();
+                        },
+                      icon: Icons.photo)
                 ],
               ),
               SizedBox(

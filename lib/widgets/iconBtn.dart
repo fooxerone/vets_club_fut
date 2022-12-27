@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../configurations/themes.dart';
 
@@ -12,7 +13,7 @@ class IconBtn extends StatelessWidget {
     return  Card(
       color: Colors.transparent,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20).w,
           side: BorderSide(
               color: MyTheme.boldBlue
           )

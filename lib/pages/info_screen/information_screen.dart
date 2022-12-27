@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:vets_club/pages/package_screen/PackageScreen.dart';
@@ -47,7 +48,9 @@ class InfoScreen extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium
-                      ?.copyWith(height: 1.25),
+                      ?.copyWith(
+                      fontSize: 15.sp,
+                      height: 1.25),
                   textAlign: TextAlign.start,
                 ),
               ),

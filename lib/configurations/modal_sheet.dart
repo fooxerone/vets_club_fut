@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widgets/elevated_btn.dart';
 
 ShowModalBottomSheet(
@@ -17,7 +18,7 @@ ShowModalBottomSheet(
       padding: EdgeInsets.all(size.height * 0.02),
       decoration: BoxDecoration(
       color: Color(0xFFE2EFF1),
-        borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(20).w,topRight: Radius.circular(20).w)
       ),
       child: Column(
         children: [

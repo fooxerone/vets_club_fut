@@ -162,7 +162,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       keyboardType: TextInputType.visiblePassword),
                   SizedBox(
-                    height: size.height * 0.04,
+                    height: size.height * 0.06,
                   ),
                   ElevatedBtn(
                       title: 'Register'.toUpperCase(),
@@ -174,7 +174,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             phone: phoneController.text);
                       }),
                   SizedBox(
-                    height: size.height * 0.025,
+                    height: size.height * 0.035,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

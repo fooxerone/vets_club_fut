@@ -42,7 +42,7 @@ class _PackageScreenState extends State<PackageScreen> {
                   height: size.height * 0.01,
                 ),
                 InkWell(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(25).w,
                   onTap: () {
                     ShowModalBottomSheet(
                         context,
@@ -55,12 +55,13 @@ class _PackageScreenState extends State<PackageScreen> {
                     elevation: 4,
                     color: Colors.transparent,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25)),
+                        borderRadius: BorderRadius.circular(25).w),
                     child: Container(
-                        padding: EdgeInsets.all(size.height * 0.027),
+                        padding: EdgeInsets.all(size.height * 0.02),
                         decoration: BoxDecoration(
                             color: MyTheme.lightBlue,
-                            borderRadius: BorderRadiusDirectional.circular(25)),
+                            borderRadius: BorderRadius.circular(25).w
+                        ),
                         height: size.height * 0.17,
                         width: size.width * 1,
                         child: ListView.separated(
@@ -109,7 +110,7 @@ class _PackageScreenState extends State<PackageScreen> {
                   height: size.height * 0.01,
                 ),
                 InkWell(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(25).w,
                   onTap: () {
                     ShowModalBottomSheet(
                         context,
@@ -124,12 +125,13 @@ class _PackageScreenState extends State<PackageScreen> {
                     elevation: 4,
                     color: Colors.transparent,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25)),
+                        borderRadius: BorderRadius.circular(25).w),
                     child: Container(
-                        padding: EdgeInsets.all(size.height * 0.027),
+                        padding: EdgeInsets.all(size.height * 0.02),
                         decoration: BoxDecoration(
                             color: MyTheme.lightBlue,
-                            borderRadius: BorderRadiusDirectional.circular(25)),
+                            borderRadius: BorderRadius.circular(25).w
+                        ),
                         height: size.height * 0.17,
                         width: size.width * 1,
                         child: ListView.separated(
@@ -178,7 +180,7 @@ class _PackageScreenState extends State<PackageScreen> {
                   height: size.height * 0.01,
                 ),
                 InkWell(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(25).w,
                   onTap: () {
                     ShowModalBottomSheet(
                         context,
@@ -191,12 +193,13 @@ class _PackageScreenState extends State<PackageScreen> {
                     elevation: 4,
                     color: Colors.transparent,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25)),
+                        borderRadius: BorderRadius.circular(25).w),
                     child: Container(
-                        padding: EdgeInsets.all(size.height * 0.027),
+                        padding: EdgeInsets.all(size.height * 0.02),
                         decoration: BoxDecoration(
                             color: MyTheme.lightBlue,
-                            borderRadius: BorderRadiusDirectional.circular(25)),
+                            borderRadius: BorderRadius.circular(25).w
+                        ),
                         height: size.height * 0.17,
                         width: size.width * 1,
                         child: ListView.separated(

@@ -26,7 +26,7 @@ class ElevatedBtn extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all(MyTheme.lightBlue),
           elevation: MaterialStateProperty.all(8),
           shape: MaterialStateProperty.all(RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25).w,
               side: BorderSide(color: MyTheme.boldBlue)))),
     );
   }

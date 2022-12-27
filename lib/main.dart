@@ -79,7 +79,7 @@ class MyApp extends StatelessWidget {
             transition: Transition.rightToLeftWithFade,
           ),
         ],
-        initialRoute: ClinicHomeScreen.routeName,
+        initialRoute: FormScreen.routeName,
       );
     }
     )

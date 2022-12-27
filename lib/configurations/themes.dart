@@ -41,7 +41,7 @@ class MyTheme{
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: lightBlue,
       shape: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(30).w,
         borderSide: BorderSide(
           color: boldBlue,
           width: 1

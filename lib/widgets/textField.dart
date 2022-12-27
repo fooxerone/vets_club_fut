@@ -44,13 +44,13 @@ class TextFieldWidget extends StatelessWidget {
             fontSize: 14.sp
           ),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25).w,
               borderSide: BorderSide(color: MyTheme.boldBlue)),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25).w,
               borderSide: BorderSide(color: MyTheme.boldBlue)),
           border:  OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25).w,
               borderSide: BorderSide(color: MyTheme.boldBlue)),
       ),
     );
