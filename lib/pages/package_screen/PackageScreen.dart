@@ -56,11 +56,14 @@ class _PackageScreenState extends State<PackageScreen> {
                     color: Colors.transparent,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25).w),
+
                     child: Container(
                         padding: EdgeInsets.all(size.height * 0.02),
                         decoration: BoxDecoration(
                             color: MyTheme.lightBlue,
-                            borderRadius: BorderRadius.circular(25).w
+                            borderRadius: BorderRadius.circular(25).w,
+                            border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+
                         ),
                         height: size.height * 0.17,
                         width: size.width * 1,
@@ -130,7 +133,9 @@ class _PackageScreenState extends State<PackageScreen> {
                         padding: EdgeInsets.all(size.height * 0.02),
                         decoration: BoxDecoration(
                             color: MyTheme.lightBlue,
-                            borderRadius: BorderRadius.circular(25).w
+                            borderRadius: BorderRadius.circular(25).w,
+                            border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+
                         ),
                         height: size.height * 0.17,
                         width: size.width * 1,
@@ -198,7 +203,9 @@ class _PackageScreenState extends State<PackageScreen> {
                         padding: EdgeInsets.all(size.height * 0.02),
                         decoration: BoxDecoration(
                             color: MyTheme.lightBlue,
-                            borderRadius: BorderRadius.circular(25).w
+                            borderRadius: BorderRadius.circular(25).w,
+                            border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+
                         ),
                         height: size.height * 0.17,
                         width: size.width * 1,

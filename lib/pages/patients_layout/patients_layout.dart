@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vets_club/configurations/themes.dart';
+import 'package:vets_club/pages/addPatient_screen/addPatient_screen.dart';
 import 'package:vets_club/pages/inPatients_screen/inPatients_screen.dart';
 import 'package:vets_club/pages/outPatients_screen/outPatients_screen.dart';
 
@@ -18,7 +20,9 @@ class _PatientsLayoutState extends State<PatientsLayout> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          Get.toNamed(AddPatientScreen.routeName);
+        },
         child: Icon(Icons.add,
         size: 30,
         color: Colors.black,

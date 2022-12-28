@@ -49,7 +49,9 @@ class TwoPackageScreen extends StatelessWidget {
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             color: MyTheme.lightBlue,
-                            borderRadius: BorderRadius.circular(20).w
+                            borderRadius: BorderRadius.circular(20).w,
+                              border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+
                           ),
                             child: Text('Clinic',
                             style: Theme.of(context).textTheme.titleLarge,
@@ -75,7 +77,8 @@ class TwoPackageScreen extends StatelessWidget {
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: MyTheme.lightBlue,
-                              borderRadius: BorderRadius.circular(20).w
+                              borderRadius: BorderRadius.circular(20).w,
+                              border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
                           ),
                           child: Text('Bookings',
                             style: Theme.of(context).textTheme.titleLarge,

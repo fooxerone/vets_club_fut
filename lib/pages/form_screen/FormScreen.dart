@@ -278,7 +278,9 @@ class _FormScreenState extends State<FormScreen> {
                     padding: EdgeInsets.symmetric(vertical: size.height * 0.0095),
                     decoration: BoxDecoration(
                         color: MyTheme.lightBlue,
-                        borderRadius: BorderRadius.circular(15).w),
+                        borderRadius: BorderRadius.circular(15).w,
+                        border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+        ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -353,7 +355,9 @@ class _FormScreenState extends State<FormScreen> {
                     padding: EdgeInsets.all(size.height * 0.0095),
                     decoration: BoxDecoration(
                         color: MyTheme.lightBlue,
-                        borderRadius: BorderRadius.circular(15).w),
+                        borderRadius: BorderRadius.circular(15).w,
+                        border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+        ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

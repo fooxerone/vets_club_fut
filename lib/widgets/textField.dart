@@ -3,27 +3,38 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vets_club/configurations/themes.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  String label;
+  String? label;
+  String? hint;
   TextEditingController controller;
   bool? isVisible;
   Widget? suffix;
   Widget? prefix;
   int? minLine;
   int? maxLine;
-  TextInputType keyboardType;
+  bool? showCursor = true;
+  bool? readOnly = false;
+  GestureTapCallback? onTap;
+  TextInputType? keyboardType;
   FormFieldValidator<String>? validator;
   TextFieldWidget(
-      {required this.label,
+      { this.label,
+        this.hint,
+        this.onTap,
+        this.showCursor,
+        this.readOnly,
       required this.controller,
       this.isVisible,
       this.suffix,
       this.prefix,
       this.validator,
-      required this.keyboardType,this.maxLine = 1,this.minLine = 1});
+       this.keyboardType,this.maxLine = 1,this.minLine = 1});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      showCursor: showCursor,
+      readOnly: readOnly??false,
+      onTap: onTap,
       cursorColor: MyTheme.boldBlue,
       controller: controller,
       obscureText: isVisible ?? false,
@@ -32,6 +43,7 @@ class TextFieldWidget extends StatelessWidget {
       maxLines: maxLine,
       minLines: minLine,
       decoration: InputDecoration(
+        hintText: hint,
           suffixIcon: suffix,
           prefixIcon: prefix,
           filled: true,

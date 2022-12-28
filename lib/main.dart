@@ -7,6 +7,7 @@ import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreenViewModel.dart';
 import 'package:vets_club/pages/Register_Screen/RegisterScreen.dart';
 import 'package:vets_club/pages/Register_Screen/RegisterScreenViewModel.dart';
+import 'package:vets_club/pages/addPatient_screen/addPatient_screen.dart';
 import 'package:vets_club/pages/clinic_home_screen/ClinicHomeScreen.dart';
 import 'package:vets_club/pages/form_screen/FormScreen.dart';
 import 'package:vets_club/pages/info_screen/information_screen.dart';
@@ -41,39 +42,61 @@ class MyApp extends StatelessWidget {
         title: 'Vets club',
         getPages: [
           GetPage(name: LoginScreen.routeName, page: () => LoginScreen(),
-              transition: Transition.fadeIn
+              transition: Transition.fadeIn,
+              fullscreenDialog: true
           ),
           GetPage(name: FormScreen.routeName, page: () => FormScreen(),
-              transition: Transition.size
+              transition: Transition.size,
+              fullscreenDialog: true
           ),
           GetPage(name: PatientsLayout.routeName, page: () => PatientsLayout(),
-              transition: Transition.rightToLeftWithFade
+              transition: Transition.rightToLeftWithFade,
+              fullscreenDialog: true
+
           ),
           GetPage(
               name: TwoPackageScreen.routeName, page: () => TwoPackageScreen(),
-              transition: Transition.rightToLeftWithFade
+              transition: Transition.rightToLeftWithFade,
+              fullscreenDialog: true
+
           ),
           GetPage(
               name: ClinicHomeScreen.routeName, page: () => ClinicHomeScreen(),
-              transition: Transition.rightToLeftWithFade
+              transition: Transition.rightToLeftWithFade,
+              fullscreenDialog: true
+
           ),
           GetPage(name: PackageScreen.routeName, page: () => PackageScreen(),
-              transition: Transition.rightToLeftWithFade
+              transition: Transition.rightToLeftWithFade,
+              fullscreenDialog: true
+
           ),
           GetPage(name: InfoScreen.routeName, page: () => InfoScreen(),
-              transition: Transition.rightToLeftWithFade
+              transition: Transition.rightToLeftWithFade,
+              fullscreenDialog: true
+
           ),
           GetPage(name: RegisterScreen.routeName, page: () => RegisterScreen(),
             transition: Transition.rightToLeftWithFade,
+              fullscreenDialog: true
+
           ),
           GetPage(name: PatientsLayout.routeName, page: () => PatientsLayout(),
             transition: Transition.rightToLeftWithFade,
+              fullscreenDialog: true
+
           ),
           GetPage(name: ItemsAndProcessesLayout.routeName, page: () => ItemsAndProcessesLayout(),
             transition: Transition.rightToLeftWithFade,
+              fullscreenDialog: true
+
+          ),
+          GetPage(name: AddPatientScreen.routeName, page: () => AddPatientScreen(),
+            transition: Transition.size,
+            fullscreenDialog: true,
           ),
         ],
-        initialRoute: FormScreen.routeName,
+        initialRoute: ClinicHomeScreen.routeName,
       );
     }
     )

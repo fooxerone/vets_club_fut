@@ -49,7 +49,10 @@ class ClinicHomeScreen extends StatelessWidget {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             color: MyTheme.lightBlue,
-                            borderRadius: BorderRadius.circular(20).w),
+                            borderRadius: BorderRadius.circular(20).w,
+                            border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+
+                        ),
                         child: Text(
                           'Patients',
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -78,7 +81,10 @@ class ClinicHomeScreen extends StatelessWidget {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             color: MyTheme.lightBlue,
-                            borderRadius: BorderRadius.circular(20).w),
+                            borderRadius: BorderRadius.circular(20).w,
+                            border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+
+                        ),
                         child: Text(
                           'Owners',
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -112,7 +118,10 @@ class ClinicHomeScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: MyTheme.lightBlue,
-                          borderRadius: BorderRadius.circular(20).w),
+                          borderRadius: BorderRadius.circular(20).w,
+                          border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+
+                      ),
                       child: Text(
                         'Drugs',
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -140,7 +149,9 @@ class ClinicHomeScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: MyTheme.lightBlue,
-                          borderRadius: BorderRadius.circular(20).w),
+                          borderRadius: BorderRadius.circular(20).w,
+                          border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+                      ),
                       child: Text(
                         'Items & Processes',
                         textAlign: TextAlign.center,
@@ -173,7 +184,10 @@ class ClinicHomeScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: MyTheme.lightBlue,
-                      borderRadius: BorderRadius.circular(20).w),
+                      borderRadius: BorderRadius.circular(20).w,
+                      border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+
+                  ),
                   child: Text(
                     'Inventory',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
