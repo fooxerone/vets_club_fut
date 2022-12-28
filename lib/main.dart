@@ -96,7 +96,7 @@ class MyApp extends StatelessWidget {
             fullscreenDialog: true,
           ),
         ],
-        initialRoute: ClinicHomeScreen.routeName,
+        initialRoute: FormScreen.routeName,
       );
     }
     )

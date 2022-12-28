@@ -27,6 +27,10 @@ class _FormScreenState extends State<FormScreen> {
     });
   }
 
+  List<TextEditingController> vetsNameControl = [TextEditingController()];
+  List<String> vetsName = [];
+  List<String> qualification = [];
+  List<TextEditingController> qualificationControl = [TextEditingController()];
   TextEditingController clinicNameControl = TextEditingController();
   TextEditingController locationControl = TextEditingController();
   TextEditingController phoneControl = TextEditingController();
@@ -42,8 +46,7 @@ class _FormScreenState extends State<FormScreen> {
   final ImagePicker picker = ImagePicker();
   List<String> animals = ['Equine', 'Pet', 'Ovine', 'Bovine'];
   List animalsSelected = [];
-  int index = 0;
-  double height = 0;
+  int index = 1;
 
   List<String> country = [
     'Country 1',
@@ -114,36 +117,32 @@ class _FormScreenState extends State<FormScreen> {
                 physics: NeverScrollableScrollPhysics(),
                 separatorBuilder: (context, index) => SizedBox(height: size.height * 0.026,),
                   itemBuilder: (context, index) {
-                    return SizedBox(
-                      child: Row(
-                        children: [
-                          Expanded(
-                              child: SizedBox(
-                                height: size.height * 0.06,
-                                child: TextFieldWidget(
-                                    label: 'Vet Name ${index+1}',
-                                    controller: ownerControl,
-                                    keyboardType: TextInputType.text),
-                              )),
-                          SizedBox(width: size.width * 0.015,),
-                          Expanded(
-                              child: SizedBox(
-                                height: size.height * 0.06,
-                                child: TextFieldWidget(
-                                    label: 'Qualification ${index+1}',
-                                    controller: ownerControl,
-                                    keyboardType: TextInputType.text),
-                              )),
-                        ],
-                      ),
+                    return Row(
+                      children: [
+                        Expanded(
+                            child: SizedBox(
+                              height: size.height * 0.06,
+                              child: TextFieldWidget(
+                                  label: 'Vet Name ${index+1}',
+                                  controller: vetsNameControl[index],
+                                  keyboardType: TextInputType.text),
+                            )),
+                        SizedBox(width: size.width * 0.015,),
+                        Expanded(
+                            child: SizedBox(
+                              height: size.height * 0.06,
+                              child: TextFieldWidget(
+                                  label: 'Qualification ${index+1}',
+                                  controller: qualificationControl[index],
+                                  keyboardType: TextInputType.text),
+                            )),
+                      ],
                     );
                   },
                   itemCount: index),
-             index > 0? SizedBox(
+             SizedBox(
                 height: size.height * 0.03,
-              ) : SizedBox(
-               height:0,
-             ),
+              ),
               Row(
                 children: [
                   Text('Add Veterinarian',
@@ -156,6 +155,10 @@ class _FormScreenState extends State<FormScreen> {
                   IconBtn(
                       onPressed: () {
                         index++;
+                        vetsNameControl.add(TextEditingController());
+                        vetsName.add(vetsNameControl[index-2].text);
+                        qualificationControl.add(TextEditingController());
+                        qualification.add(qualificationControl[index-2].text);
                         setState(() {});
                       },
                       icon: Icons.add)
@@ -183,7 +186,6 @@ class _FormScreenState extends State<FormScreen> {
                   IconBtn(
                       onPressed: () async {
                         images = await picker.pickMultiImage();
-
                       },
                       icon: Icons.photo)
                 ],
@@ -373,66 +375,7 @@ class _FormScreenState extends State<FormScreen> {
                         ),
                         Row(
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Country',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium
-                                      ?.copyWith(
-                                      fontSize: 18, color: Colors.black),
-                                ),
-                                Container(
-                                  width: size.width * 0.45,
-                                  child:  DropdownButtonFormField2(
-                                    decoration: InputDecoration(
-                                     isDense: true,
-                                      contentPadding: EdgeInsets.zero,
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(15),
-                                      ),
-
-                                       ),
-                                    hint: Text(
-                                        'Choose Country',
-                                      style: TextStyle(fontSize: 14),
-                                    ),
-                                    icon: Icon(
-                                      Icons.arrow_drop_down,
-                                      color: Colors.black45,
-                                    ),
-                                    iconSize: 30,
-                                    buttonHeight: 60,
-                                    dropdownDecoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                    items: country
-                                        .map((item) =>
-                                        DropdownMenuItem<String>(
-                                          value: item,
-                                          child: Text(
-                                            item,
-                                            style: const TextStyle(
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                        ))
-                                        .toList(),
-                                    validator: (value) {
-                                      if (value == null) {
-                                        return 'Please select gender.';
-                                      }
-                                    },
-                                    onChanged: (value) {
-                                      //Do something when changing the item if you want.
-                                    },
-                                  ),
-                                ),
-
-                              ],
-                            ),  Column(
+                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
