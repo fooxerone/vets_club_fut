@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_select_items/flutter_multi_select_items.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:vets_club/configurations/themes.dart';
 import 'package:vets_club/widgets/arrowBack.dart';
@@ -24,8 +25,13 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
   TextEditingController phoneControl = TextEditingController();
   TextEditingController idControl = TextEditingController();
   TextEditingController farmNameControl = TextEditingController();
+  TextEditingController ownerComplainControl = TextEditingController();
+  TextEditingController commentClinicSignControl = TextEditingController();
   List<String> animals = ['Hours', 'Dog', 'Cat', 'Lion'];
   List animalsSelected = [];
+  List<XFile> images = [];
+  XFile? camera;
+  final ImagePicker picker = ImagePicker();
   DateTime? selectedDate;
   List patient =['in','out'];
   Key key = UniqueKey();
@@ -187,6 +193,62 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
                   ),
                 ],
               ),
+                SizedBox(height: size.height*0.03,),
+              TextFieldWidget(
+                controller: ownerComplainControl,
+                label: 'Owner Complain',
+                minLine: 1,
+                maxLine: 10,
+              keyboardType: TextInputType.text,
+              ),
+              SizedBox(height: size.height*0.03,),
+              Wrap(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(size.height * 0.012),
+                    decoration: BoxDecoration(
+                        color: MyTheme.lightBlue,
+                        borderRadius: BorderRadius.circular(15).w,
+                        border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Clinic License',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall
+                                  ?.copyWith(fontSize: 16.sp),
+                            ),
+                            Spacer(),
+                            IconBtn(
+                                onPressed: () async {
+                                  camera = await picker.pickImage(source: ImageSource.camera);
+                                },
+                                icon: Icons.camera_alt_outlined),
+                            IconBtn(
+                                onPressed: () async {
+                                  images = await picker.pickMultiImage();
+                                },
+                                icon: Icons.photo)
+                          ],
+                        ),
+                        SizedBox(height: size.height * 0.015,),
+                        TextFieldWidget(
+                          controller: commentClinicSignControl,
+                          label: 'Comment',
+                          keyboardType: TextInputType.text,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: size.height * 0.03,),
 
             ],
           ),

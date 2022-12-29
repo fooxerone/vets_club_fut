@@ -96,7 +96,7 @@ class MyApp extends StatelessWidget {
             fullscreenDialog: true,
           ),
         ],
-        initialRoute: FormScreen.routeName,
+        initialRoute: AddPatientScreen.routeName,
       );
     }
     )
