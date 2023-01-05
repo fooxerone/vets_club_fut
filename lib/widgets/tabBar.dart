@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
-import 'package:vets_club/pages/owners_layout/ownersLayoutViewModel.dart';
 import '../configurations/themes.dart';
 
 class TabBarWidget extends StatefulWidget {
   List list;
- TabBarWidget({required this.list,});
+  ValueChanged<int>? onTap;
+  int currentIndex;
+  TabBarWidget({required this.list,required this.onTap,required this.currentIndex});
 
 
   @override
@@ -14,13 +14,13 @@ class TabBarWidget extends StatefulWidget {
 }
 
 class _TabBarWidgetState extends State<TabBarWidget> {
+
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<OwnersLayoutProvider>(context);
     var size = MediaQuery.of(context).size;
     return DefaultTabController(
         length: widget.list.length,
-        initialIndex: provider.currentIndex,
+        initialIndex: widget.currentIndex,
         child: TabBar(
           labelPadding: EdgeInsets.symmetric(horizontal: size.height * 0.01),
           splashBorderRadius: BorderRadius.circular(15).w,
@@ -32,18 +32,16 @@ class _TabBarWidgetState extends State<TabBarWidget> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15).w,
                     border: Border.fromBorderSide(BorderSide(color: MyTheme.purple)),
-                    color: provider.currentIndex == widget.list.indexOf(val) ? MyTheme.purple : MyTheme.lightBlue
+                    color: widget.currentIndex == widget.list.indexOf(val) ? MyTheme.purple : MyTheme.lightBlue
                 ),
                 child: Text(val,
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      color: provider.currentIndex == widget.list.indexOf(val) ? Colors.white: Colors.black
+                      color: widget.currentIndex == widget.list.indexOf(val) ? Colors.white: Colors.black
                   ),
                 ));
           }).toList(),
           physics: BouncingScrollPhysics(),
-          onTap: (index){
-           provider.changeIndex(index);
-          },
+          onTap: widget.onTap,
           indicatorColor: Colors.transparent,
         )
     );

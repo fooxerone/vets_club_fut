@@ -9,10 +9,10 @@ import 'package:vets_club/pages/Register_Screen/RegisterScreen.dart';
 import 'package:vets_club/pages/Register_Screen/RegisterScreenViewModel.dart';
 import 'package:vets_club/pages/addPatient_screen/addPatient_screen.dart';
 import 'package:vets_club/pages/clinic_home_screen/ClinicHomeScreen.dart';
+import 'package:vets_club/pages/drugs_layout/drugs_layout.dart';
 import 'package:vets_club/pages/form_screen/FormScreen.dart';
 import 'package:vets_club/pages/info_screen/information_screen.dart';
 import 'package:vets_club/pages/owners_layout/ownersLayout.dart';
-import 'package:vets_club/pages/owners_layout/ownersLayoutViewModel.dart';
 import 'package:vets_club/pages/package_screen/PackageScreen.dart';
 import 'package:vets_club/pages/patients_layout/patients_layout.dart';
 import 'package:vets_club/pages/twoPackage_screen/TwoPackageScreen.dart';
@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => RegisterProvider(),),
         ChangeNotifierProvider(create: (context) => LoginProvider(),),
-        ChangeNotifierProvider(create: (context) => OwnersLayoutProvider(),)
       ],
       child: ScreenUtilInit(
           designSize: const Size(360, 690),
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: MyTheme.lightTheme,
-        title: 'Vets club',
+        title: 'Vets club Notes',
         getPages: [
           GetPage(name: LoginScreen.routeName, page: () => LoginScreen(),
               transition: Transition.fadeIn,
@@ -102,8 +101,12 @@ class MyApp extends StatelessWidget {
             transition: Transition.size,
             fullscreenDialog: true,
           ),
+          GetPage(name: DrugsLayout.routeName, page: () => DrugsLayout(),
+            transition: Transition.size,
+            fullscreenDialog: true,
+          ),
         ],
-        initialRoute: OwnersLayout.routeName,
+        initialRoute: DrugsLayout.routeName,
       );
     }
     )
