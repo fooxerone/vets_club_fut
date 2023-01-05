@@ -33,6 +33,11 @@ class MyTheme{
           color: purple,
           fontWeight: FontWeight.bold
         ),
+        headlineSmall: GoogleFonts.juliusSansOne(
+          fontSize: 13.sp,
+          color: Colors.black,
+          fontWeight: FontWeight.bold
+        ),
         titleLarge: GoogleFonts.juliusSansOne(
             fontSize: 32.sp, color: purple, fontWeight: FontWeight.normal),
         bodyLarge: GoogleFonts.juliusSansOne(

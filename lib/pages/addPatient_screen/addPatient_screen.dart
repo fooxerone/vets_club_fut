@@ -30,6 +30,8 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
   List<String> animals = ['Hours', 'Dog', 'Cat', 'Lion'];
   List animalsSelected = [];
   List<XFile> images = [];
+  String gender = 'male';
+  String patients = 'In Patients';
   XFile? camera;
   final ImagePicker picker = ImagePicker();
   DateTime? selectedDate;
@@ -58,7 +60,7 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
           child: Column(
             children: [
               TextFieldWidget(
-                label: 'Date of Entry',
+                label: patients == 'Out Patients'?'Date of Examination':'Date of Entry',
                 controller: dateController,
                 prefix: Icon(Icons.date_range_outlined,color: Colors.black,),
                 showCursor: false,
@@ -75,6 +77,81 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
                   setState(() {});
                 },
               ),
+          SizedBox(height: size.height * 0.03,),
+          Row(
+            children: [
+              Radio(
+                value: patients,
+                groupValue: patients,
+                onChanged: (value) {
+                  setState(() {
+                    patients = value.toString();
+                  });
+                },
+                activeColor: MyTheme.purple,
+              ),
+              const Text('In Patients'),
+              const Spacer(),
+              Radio(
+                value: 'Out Patients',
+                groupValue: patients,
+                onChanged: (value) {
+                  setState(() {
+                    patients = value.toString();
+                  });
+                },
+                activeColor: MyTheme.purple,
+              ),
+              const Text('Out Patients'),
+            ],
+          ),
+        SizedBox(height: size.height * 0.03,),
+         Wrap(
+           children: [
+             Container(
+               width: double.infinity,
+               padding: EdgeInsets.all(size.height * 0.012),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: MyTheme.lightBlue,
+                    borderRadius: BorderRadius.circular(15).w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Gender'),
+                    SizedBox(height: size.height *0.015,),
+                    Row(
+                      children: [
+                        Radio(
+                          value: 'male',
+                          groupValue: gender,
+                          onChanged: (value) {
+                            setState(() {
+                              gender = value.toString();
+                            });
+                          },
+                          activeColor: MyTheme.purple,
+                        ),
+                        const Text('Male'),
+                        const Spacer(),
+                        Radio(
+                          value: 'Female',
+                          groupValue: gender,
+                          onChanged: (value) {
+                            setState(() {
+                              gender = value.toString();
+                            });
+                          },
+                          activeColor: MyTheme.purple,
+                        ),
+                        const Text('Female'),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+           ],
+         ),
               SizedBox(height: size.height *0.03,),
               TextFieldWidget(
                   label: 'Case Number',
