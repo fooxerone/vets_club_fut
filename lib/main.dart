@@ -116,7 +116,7 @@ class MyApp extends StatelessWidget {
             fullscreenDialog: true,
           ),
         ],
-        initialRoute: AddItemProcessScreen.routeName,
+        initialRoute: AddDrugScreen.routeName,
       );
     }
     )
