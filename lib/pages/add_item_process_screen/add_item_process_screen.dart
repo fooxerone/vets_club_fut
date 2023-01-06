@@ -16,13 +16,9 @@ class AddItemProcessScreen extends StatefulWidget {
 
 class _AddItemProcessScreenState extends State<AddItemProcessScreen> {
   TextEditingController nameController = TextEditingController();
-
   TextEditingController moreInfoController = TextEditingController();
-
   TextEditingController purchaseController = TextEditingController();
-
   TextEditingController sellingController = TextEditingController();
-
   TextEditingController actualController = TextEditingController();
 
   String itemsOrProcesses = 'Item';
@@ -69,7 +65,6 @@ class _AddItemProcessScreenState extends State<AddItemProcessScreen> {
                       height: size.height * 0.03,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Radio(
                           value: 'Item',
