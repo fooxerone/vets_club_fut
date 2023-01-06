@@ -31,7 +31,7 @@ class TwoPackageScreen extends StatelessWidget {
                 radius: 60,
                 backgroundColor: MyTheme.purple,
               ),
-                    SizedBox(height: size.height * 0.15,),
+                    SizedBox(height: size.height * 0.25,),
                     InkWell(
                       borderRadius: BorderRadius.circular(20).w,
                       onTap: (){
@@ -59,33 +59,7 @@ class TwoPackageScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: size.height * 0.04,),
-                    InkWell(
-                      borderRadius: BorderRadius.circular(20).w,
-                      onTap: (){
 
-                      },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20).w
-                        ),
-                        elevation: 4,
-                        color: Colors.transparent,
-                        child: Container(
-                          height: size.height * 0.15,
-                          width: double.infinity,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: MyTheme.lightBlue,
-                              borderRadius: BorderRadius.circular(20).w,
-                              border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
-                          ),
-                          child: Text('Bookings',
-                            style: Theme.of(context).textTheme.titleLarge,
-                          ),
-                        ),
-                      ),
-                    ),
                   ],
                 ),
               ),

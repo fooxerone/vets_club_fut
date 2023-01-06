@@ -29,7 +29,7 @@ class ClinicHomeScreen extends StatelessWidget {
                 radius: 60,
                 backgroundColor: MyTheme.purple,
               ),
-              SizedBox(height: size.height * 0.05,),
+              SizedBox(height: size.height * 0.04,),
               Row(
                 children: [
                   InkWell(
@@ -97,7 +97,7 @@ class ClinicHomeScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: size.height * 0.04,
+                height: size.height * 0.03,
               ),
               Row(
                 children: [
@@ -165,37 +165,73 @@ class ClinicHomeScreen extends StatelessWidget {
                 ],
                     ),
               SizedBox(
-                height: size.height * 0.04,
+                height: size.height * 0.03,
               ),
-              InkWell(
-                borderRadius: BorderRadius.circular(20).w,
-                onTap: (){
+              Row(
+                children: [
+                  InkWell(
+                    borderRadius: BorderRadius.circular(20).w,
+                    onTap: (){
 
-                },
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20).w
-                  ),
-                  elevation: 4,
-                  color: Colors.transparent,
-                child: Container(
-                  height: size.height * 0.18,
-                  width: size.width * 0.42,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: MyTheme.lightBlue,
-                      borderRadius: BorderRadius.circular(20).w,
-                      border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20).w
+                      ),
+                      elevation: 4,
+                      color: Colors.transparent,
+                    child: Container(
+                      height: size.height * 0.18,
+                      width: size.width * 0.42,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: MyTheme.lightBlue,
+                          borderRadius: BorderRadius.circular(20).w,
+                          border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
 
-                  ),
-                  child: Text(
-                    'Inventory',
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      fontWeight: FontWeight.normal
+                      ),
+                      child: Text(
+                        'Inventory',
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          fontWeight: FontWeight.normal
+                        ),
+                      ),
+                    ),
                     ),
                   ),
-                ),
-                ),
+                  Spacer(),
+                  InkWell(
+                    borderRadius: BorderRadius.circular(20).w,
+                    onTap: (){
+
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20).w
+                      ),
+                      elevation: 4,
+                      color: Colors.transparent,
+                    child: Container(
+                      height: size.height * 0.18,
+                      width: size.width * 0.42,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: MyTheme.lightBlue,
+                          borderRadius: BorderRadius.circular(20).w,
+                          border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+
+                      ),
+                      child: Text(
+                        'prescripti.on',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          fontWeight: FontWeight.normal
+                        ),
+                      ),
+                    ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

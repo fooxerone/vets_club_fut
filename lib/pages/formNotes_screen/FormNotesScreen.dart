@@ -9,7 +9,7 @@ import '../../widgets/iconBtn.dart';
 import '../../widgets/textField.dart';
 
 class FormNotesScreen extends StatefulWidget {
-  static const String routeName = 'formNote';
+  static const String routeName = '/formNote';
 
   @override
   State<FormNotesScreen> createState() => _FormNotesScreenState();
