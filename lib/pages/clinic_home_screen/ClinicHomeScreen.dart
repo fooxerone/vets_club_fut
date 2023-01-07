@@ -9,16 +9,21 @@ import '../Items&processes_Layout/Items&processes_Layout.dart';
 class ClinicHomeScreen extends StatelessWidget {
   static const String routeName = '/clinicHome';
 
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         title: Text('Clinic Name'),
-        leading: ArrowBackIcon((){
-          Navigator.pop(context);
-        })
+    leading: IconButton(onPressed: (){
+    scaffoldKey.currentState?.openDrawer();
+    },
+      icon: ImageIcon(AssetImage('assets/drawerIcon.png')),),
       ),
+      drawer: Drawer(),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Padding(
@@ -222,10 +227,11 @@ class ClinicHomeScreen extends StatelessWidget {
 
                       ),
                       child: Text(
-                        'prescripti.on',
+                        'prescription',
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          fontWeight: FontWeight.normal
+                          fontWeight: FontWeight.normal,
+                          fontSize: 20.sp
                         ),
                       ),
                     ),
