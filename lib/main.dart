@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
               fullscreenDialog: true
           ),
           GetPage(name: PatientsLayout.routeName, page: () => PatientsLayout(),
-              transition: Transition.rightToLeftWithFade,
+              transition: Transition.leftToRightWithFade,
               fullscreenDialog: true
 
           ),
@@ -76,26 +76,21 @@ class MyApp extends StatelessWidget {
               fullscreenDialog: true
 
           ),
-          GetPage(name: PatientsLayout.routeName, page: () => PatientsLayout(),
-            transition: Transition.rightToLeftWithFade,
-              fullscreenDialog: true
-
-          ),
           GetPage(name: ItemsAndProcessesLayout.routeName, page: () => ItemsAndProcessesLayout(),
             transition: Transition.rightToLeftWithFade,
               fullscreenDialog: true
 
           ),
           GetPage(name: AddPatientScreen.routeName, page: () => AddPatientScreen(),
-            transition: Transition.size,
+            transition: Transition.downToUp,
             fullscreenDialog: true,
           ),
           GetPage(name: OwnersLayout.routeName, page: () => OwnersLayout(),
-            transition: Transition.size,
+            transition: Transition.rightToLeftWithFade,
             fullscreenDialog: true,
           ),
           GetPage(name: DrugsLayout.routeName, page: () => DrugsLayout(),
-            transition: Transition.size,
+            transition: Transition.leftToRightWithFade,
             fullscreenDialog: true,
           ),
           GetPage(name: FormNotesScreen.routeName, page: () => FormNotesScreen(),
@@ -103,11 +98,11 @@ class MyApp extends StatelessWidget {
             fullscreenDialog: true,
           ),
           GetPage(name: AddItemProcessScreen.routeName, page: () => AddItemProcessScreen(),
-            transition: Transition.rightToLeftWithFade,
+            transition: Transition.downToUp,
             fullscreenDialog: true,
           ),
           GetPage(name: AddDrugScreen.routeName, page: () => AddDrugScreen(),
-            transition: Transition.rightToLeftWithFade,
+            transition: Transition.downToUp,
             fullscreenDialog: true,
           ),
           GetPage(name: InventoryScreen.routeName, page: () => InventoryScreen(),
@@ -119,7 +114,7 @@ class MyApp extends StatelessWidget {
             fullscreenDialog: true,
           ),
         ],
-        initialRoute: PrescriptionScreen.routeName,
+        initialRoute: ClinicHomeScreen.routeName,
       );
     }
     )

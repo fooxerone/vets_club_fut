@@ -20,7 +20,7 @@ class _FormNotesScreenState extends State<FormNotesScreen> {
 
   void restartApp() {
     setState(() {
-      key;
+      key = UniqueKey();
     });
   }
 

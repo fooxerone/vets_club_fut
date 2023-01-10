@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vets_club/pages/add_drug_screen/add_drug_screen.dart';
 import 'package:vets_club/pages/all_drugs_screen/all_drugs_screen.dart';
 import 'package:vets_club/pages/antibiotics_screen/antibiotics_screen.dart';
 
@@ -22,7 +24,7 @@ class _DrugsLayoutState extends State<DrugsLayout> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
-          leading: ArrowBackIcon(() { }),
+          leading: ArrowBackIcon(() { Get.back();}),
           title: Text(tabs[currentIndex]),
         ),
         body: SingleChildScrollView(
@@ -44,7 +46,7 @@ class _DrugsLayoutState extends State<DrugsLayout> {
             ),
           ),
         ),
-      floatingActionButton: FloatingActionBtn(onPressed: (){})
+      floatingActionButton: FloatingActionBtn(onPressed: (){Get.toNamed(AddDrugScreen.routeName);})
     );
   }
 }

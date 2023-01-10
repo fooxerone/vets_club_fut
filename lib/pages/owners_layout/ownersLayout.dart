@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vets_club/pages/all_owners_screen/all_owners_screen.dart';
 import 'package:vets_club/pages/in_owners_screen/in_owners_screen.dart';
 import 'package:vets_club/pages/out_owners_screen/out_owners_screen.dart';
@@ -22,7 +23,7 @@ class _OwnersLayoutState extends State<OwnersLayout> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        leading: ArrowBackIcon(() { }),
+        leading: ArrowBackIcon(() { Get.back();}),
         title: Text(tabs[currentIndex]),
       ),
       body: SingleChildScrollView(

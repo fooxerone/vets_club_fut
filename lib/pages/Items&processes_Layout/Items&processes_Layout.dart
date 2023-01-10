@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vets_club/pages/add_item_process_screen/add_item_process_screen.dart';
 
 import '../Items_Screen/ItemsScreen.dart';
 import '../Processes_Screen/ProcessesScreen.dart';
@@ -19,7 +21,9 @@ class _ItemsAndProcessesLayoutState extends State<ItemsAndProcessesLayout> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(AddItemProcessScreen.routeName);
+        },
         child: Icon(
           Icons.add,
           size: 30,

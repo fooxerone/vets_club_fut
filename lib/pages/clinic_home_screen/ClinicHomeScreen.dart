@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:vets_club/pages/drugs_layout/drugs_layout.dart';
+import 'package:vets_club/pages/owners_layout/ownersLayout.dart';
 import 'package:vets_club/pages/patients_layout/patients_layout.dart';
 import '../../configurations/themes.dart';
 import '../../widgets/arrowBack.dart';
@@ -61,7 +63,8 @@ class ClinicHomeScreen extends StatelessWidget {
                         child: Text(
                           'Patients',
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              fontWeight: FontWeight.normal
+                              fontWeight: FontWeight.normal,
+                              fontSize: 20.sp
                           ),
                         ),
                       ),
@@ -71,7 +74,7 @@ class ClinicHomeScreen extends StatelessWidget {
                   InkWell(
                     borderRadius: BorderRadius.circular(20).w,
                     onTap: (){
-
+                      Get.toNamed(OwnersLayout.routeName);
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -93,7 +96,8 @@ class ClinicHomeScreen extends StatelessWidget {
                         child: Text(
                           'Owners',
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            fontWeight: FontWeight.normal
+                              fontWeight: FontWeight.normal,
+                              fontSize: 20.sp
                           ),
                         ),
                       ),
@@ -109,7 +113,7 @@ class ClinicHomeScreen extends StatelessWidget {
                   InkWell(
                     borderRadius: BorderRadius.circular(20).w,
                     onTap: (){
-
+                      Get.toNamed(DrugsLayout.routeName);
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -130,7 +134,8 @@ class ClinicHomeScreen extends StatelessWidget {
                       child: Text(
                         'Drugs',
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            fontWeight: FontWeight.normal
+                            fontWeight: FontWeight.normal,
+                            fontSize: 20.sp
                         ),
                       ),
                     ),
@@ -161,7 +166,8 @@ class ClinicHomeScreen extends StatelessWidget {
                         'Items & Processes',
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          fontWeight: FontWeight.normal
+                            fontWeight: FontWeight.normal,
+                            fontSize: 20.sp
                         ),
                       ),
                     ),
@@ -198,7 +204,8 @@ class ClinicHomeScreen extends StatelessWidget {
                       child: Text(
                         'Inventory',
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          fontWeight: FontWeight.normal
+                            fontWeight: FontWeight.normal,
+                            fontSize: 20.sp
                         ),
                       ),
                     ),
