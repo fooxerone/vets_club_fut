@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vets_club/configurations/themes.dart';
 import 'package:vets_club/pages/Items&processes_Layout/Items&processes_Layout.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
@@ -27,10 +28,16 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+
+   SharedPreferences? prefs;
+
+  getPrefs()async{
+    prefs  = await SharedPreferences.getInstance();
+  }
 
   @override
   Widget build(BuildContext context) {
+    getPrefs();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => RegisterProvider(),),
@@ -114,7 +121,7 @@ class MyApp extends StatelessWidget {
             fullscreenDialog: true,
           ),
         ],
-        initialRoute: ClinicHomeScreen.routeName,
+        initialRoute: prefs?.getInt('onBoard') == 0?InfoScreen.routeName:LoginScreen.routeName,
       );
     }
     )

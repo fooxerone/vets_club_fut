@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vets_club/pages/package_screen/PackageScreen.dart';
 import '../../widgets/elevated_btn.dart';
 
 
-class InfoScreen extends StatelessWidget {
+class InfoScreen extends StatefulWidget {
   static const String routeName = '/info';
+
+  @override
+  State<InfoScreen> createState() => _InfoScreenState();
+}
+
+class _InfoScreenState extends State<InfoScreen> {
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +39,9 @@ class InfoScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge),
 
-              SizedBox(height: size.height * 0.02,),
+              SizedBox(height: size.height * 0.03,),
               Padding(
-                padding: EdgeInsets.all(size.width * 0.05),
+                padding: EdgeInsets.symmetric(horizontal: size.height * 0.025),
                 child: Text(
                       '- The best app for vets, vet clinics & vet hospitals.\n\n'
                       '- You can now easy arrange your vet work through a lot of facilities that been introduced to you in this app.\n\n'
@@ -49,12 +57,20 @@ class InfoScreen extends StatelessWidget {
                       .bodyMedium
                       ?.copyWith(
                       fontSize: 15.sp,
-                      height: 1.25),
+                      height: 1.25.h
+                  ),
                   textAlign: TextAlign.start,
                 ),
               ),
-              ElevatedBtn(title: 'Next'.toUpperCase(), onPressed: () {
+              SizedBox(height: size.height * 0.01,),
+              ElevatedBtn(title: 'Next'.toUpperCase(), onPressed: ()async{
                 Get.offNamed(PackageScreen.routeName);
+                index = 1 ;
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                prefs.setInt('onBoard', index);
+                setState(() {
+
+                });
               }),
             ],
           ),
