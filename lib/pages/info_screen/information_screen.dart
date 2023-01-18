@@ -1,9 +1,12 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
 import '../../widgets/elevated_btn.dart';
+
 
 
 class InfoScreen extends StatefulWidget {
@@ -15,6 +18,12 @@ class InfoScreen extends StatefulWidget {
 
 class _InfoScreenState extends State<InfoScreen> {
   bool isOpen = false;
+
+  @override
+  void initState() {
+    permission();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,5 +87,25 @@ class _InfoScreenState extends State<InfoScreen> {
         ),
       ),
     );
+  }
+  permission()async{
+    if (Platform.isAndroid) {
+      await Permission.manageExternalStorage.request();
+      var status = await Permission.manageExternalStorage.status;
+      if (status.isDenied) {
+        return;
+      }
+      if (await Permission.manageExternalStorage.isPermanentlyDenied) {
+            await openAppSettings();
+      }
+      if (status.isGranted) {
+        return[ Directory('/storage/emulated/0/Vets_Club_Notes').createSync(),
+         Directory('/storage/emulated/0/Vets_Club_Notes/Patients').createSync(),
+        Directory('/storage/emulated/0/Vets_Club_Notes/Prescriptions').createSync(),
+        ];
+      }
+
+
+    }
   }
 }
