@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,6 +30,7 @@ showMessage(BuildContext context,
 }
 
 void showLoading(BuildContext context,
+    Animation<double> lottieControl,
     {bool isCancelable = true}) {
   showDialog(
       context: context,
@@ -39,7 +39,7 @@ void showLoading(BuildContext context,
           elevation: 0,
           backgroundColor: Colors.transparent,
           alignment: Alignment.center,
-          content: Lottie.asset('assets/loading.json'),
+          content: Lottie.asset('assets/loading.json',controller:lottieControl ),
         );
       },
       barrierDismissible: isCancelable);

@@ -23,21 +23,19 @@ import 'package:vets_club/pages/prescription_screen/prescription_screen.dart';
 import 'package:get/get.dart';
 
 
-void main() {
-  runApp( MyApp());
+void main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool? isInfo = prefs.getBool('onBoard');
+  runApp( MyApp(isInfo??false));
 }
 
 class MyApp extends StatelessWidget {
-
-   SharedPreferences? prefs;
-
-  getPrefs()async{
-    prefs  = await SharedPreferences.getInstance();
-  }
+  bool isInfo;
+  MyApp(this.isInfo);
 
   @override
   Widget build(BuildContext context) {
-    getPrefs();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => RegisterProvider(),),
@@ -121,7 +119,9 @@ class MyApp extends StatelessWidget {
             fullscreenDialog: true,
           ),
         ],
-        initialRoute: prefs?.getInt('onBoard') == 0?InfoScreen.routeName:LoginScreen.routeName,
+
+
+        initialRoute: isInfo == false ? InfoScreen.routeName : LoginScreen.routeName,
       );
     }
     )

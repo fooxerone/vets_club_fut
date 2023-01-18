@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vets_club/pages/package_screen/PackageScreen.dart';
+import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
 import '../../widgets/elevated_btn.dart';
 
 
@@ -14,7 +14,7 @@ class InfoScreen extends StatefulWidget {
 }
 
 class _InfoScreenState extends State<InfoScreen> {
-  int index = 0;
+  bool isOpen = false;
 
   @override
   Widget build(BuildContext context) {
@@ -64,10 +64,11 @@ class _InfoScreenState extends State<InfoScreen> {
               ),
               SizedBox(height: size.height * 0.01,),
               ElevatedBtn(title: 'Next'.toUpperCase(), onPressed: ()async{
-                Get.offNamed(PackageScreen.routeName);
-                index = 1 ;
+
+                Get.offNamed(LoginScreen.routeName);
+               isOpen = true;
                 SharedPreferences prefs = await SharedPreferences.getInstance();
-                prefs.setInt('onBoard', index);
+                await prefs.setBool('onBoard', isOpen);
                 setState(() {
 
                 });

@@ -17,11 +17,17 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> with TickerProviderStateMixin{
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool isVisible = true;
+ late Animation<double> lottieControl;
+  @override
+  void initState() {
+    lottieControl = AnimationController(vsync: this,duration: Duration(seconds: 2));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
     var provider = Provider.of<LoginProvider>(context);
     return Scaffold(
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: EdgeInsets.all(size.height * 0.023),
           child: Form(
@@ -61,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                       return null;
                     },
-                    prefix: Icon(
+                    prefix: const Icon(
                       Icons.alternate_email,
                       color: MyTheme.boldBlue,
                     ),
@@ -81,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                       return null;
                     },
-                    prefix: Icon(
+                    prefix: const Icon(
                       Icons.password,
                       color: MyTheme.boldBlue,
                     ),
@@ -112,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 ElevatedBtn(title: 'Login'.toUpperCase(), onPressed: () {
                   if(formKey.currentState!.validate()){
-                    provider.loginAccount(context, email: emailController.text, password: passController.text);
+                    provider.loginAccount(context, email: emailController.text, password: passController.text,lottieControl: lottieControl);
                   }
                 }),
                 SizedBox(

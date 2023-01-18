@@ -14,7 +14,7 @@ class RegisterProvider extends ChangeNotifier{
     required String email,
     required String password,
     required String phone})async{
-    showLoading(context,isCancelable: false);
+   // showLoading(context,isCancelable: false);
     var auth = await createAccountDoc(
         name: name,
         email:email,
