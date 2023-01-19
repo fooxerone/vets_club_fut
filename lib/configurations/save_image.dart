@@ -16,4 +16,17 @@ saveImage()async{
       return;
     }
   }
+  if(Platform.isIOS){
+    await Permission.storage.request();
+    var statusStorage = await Permission.storage.status;
+    if (statusStorage.isDenied) {
+      return;
+    }
+    if (await Permission.storage.isPermanentlyDenied) {
+      await openAppSettings();
+    }
+    if (statusStorage.isGranted) {
+      return;
+    }
+  }
 }

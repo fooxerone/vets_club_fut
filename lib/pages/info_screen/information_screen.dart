@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vets_club/pages/Login_Screen/LoginScreen.dart';
@@ -18,13 +19,16 @@ class InfoScreen extends StatefulWidget {
 
 class _InfoScreenState extends State<InfoScreen> {
   bool isOpen = false;
-
+  direct() async {
+  Directory directory = await getApplicationSupportDirectory();
+  print(directory.path);
+}
   @override
   void initState() {
+    direct();
     permission();
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -89,6 +93,7 @@ class _InfoScreenState extends State<InfoScreen> {
     );
   }
   permission()async{
+    Directory directory = await getApplicationSupportDirectory();
     if (Platform.isAndroid) {
       await Permission.manageExternalStorage.request();
       var status = await Permission.manageExternalStorage.status;
@@ -99,10 +104,28 @@ class _InfoScreenState extends State<InfoScreen> {
             await openAppSettings();
       }
       if (status.isGranted) {
-        return[ Directory('/storage/emulated/0/Vets_Club_Notes').createSync(),
-         Directory('/storage/emulated/0/Vets_Club_Notes/Patients').createSync(),
+        return[
+        Directory('/storage/emulated/0/Vets_Club_Notes').createSync(),
+        Directory('/storage/emulated/0/Vets_Club_Notes/Patients').createSync(),
         Directory('/storage/emulated/0/Vets_Club_Notes/Prescriptions').createSync(),
         ];
+      }
+      if (Platform.isIOS){
+        await Permission.manageExternalStorage.request();
+        var isoStatus = await Permission.manageExternalStorage.status;
+        if(isoStatus.isDenied){
+          return;
+        }
+        if (await Permission.manageExternalStorage.isPermanentlyDenied){
+          await openAppSettings();
+        }
+        if(status.isGranted){
+          return[
+            Directory('${directory.path}/Vets_Club_Notes').createSync(),
+            Directory('${directory.path}/Vets_Club_Notes/Patients').createSync(),
+            Directory('${directory.path}/Vets_Club_Notes/Prescriptions').createSync(),
+          ];
+        }
       }
 
 

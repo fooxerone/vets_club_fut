@@ -49,6 +49,10 @@
     <string>To choose user profile image.</string>
     <key>NSCameraUsageDescription</key>
     <string>To take user profile image.</string>
+    <key>LSSupportsOpeningDocumentsInPlace</key>
+    <true/>
+    <key>UIFileSharingEnabled</key>
+    <true/>
 
 </dict>
 </plist>
