@@ -120,7 +120,7 @@ class MyApp extends StatelessWidget {
           ),
         ],
 
-        initialRoute: isInfo == false ? InfoScreen.routeName : LoginScreen.routeName,
+        initialRoute: isInfo == false ? InfoScreen.routeName : FormNotesScreen.routeName,
       );
     }
     )

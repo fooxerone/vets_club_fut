@@ -127,8 +127,23 @@ class _InfoScreenState extends State<InfoScreen> {
           ];
         }
       }
-
-
+    }
+    if (Platform.isAndroid) {
+      await Permission.manageExternalStorage.request();
+      var status = await Permission.manageExternalStorage.status;
+      if (status.isDenied) {
+        return;
+      }
+      if (await Permission.manageExternalStorage.isPermanentlyDenied) {
+            await openAppSettings();
+      }
+      if (status.isGranted) {
+        return [
+          Directory('/storage/emulated/0/Vets_Club_Notes').createSync(),
+          Directory('/storage/emulated/0/Vets_Club_Notes/Patients').createSync(),
+          Directory('/storage/emulated/0/Vets_Club_Notes/Prescriptions').createSync(),
+        ];
+      }
     }
   }
 }
