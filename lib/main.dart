@@ -11,6 +11,7 @@ import 'package:vets_club/pages/Register_Screen/RegisterScreenViewModel.dart';
 import 'package:vets_club/pages/addPatient_screen/addPatient_screen.dart';
 import 'package:vets_club/pages/add_drug_screen/add_drug_screen.dart';
 import 'package:vets_club/pages/add_item_process_screen/add_item_process_screen.dart';
+import 'package:vets_club/pages/add_prescription/add_prescription.dart';
 import 'package:vets_club/pages/clinic_home_screen/ClinicHomeScreen.dart';
 import 'package:vets_club/pages/drugs_screen/drugs_screen.dart';
 import 'package:vets_club/pages/formNotes_screen/FormNotesScreen.dart';
@@ -110,6 +111,10 @@ class MyApp extends StatelessWidget {
             transition: Transition.downToUp,
             fullscreenDialog: true,
           ),
+          GetPage(name: AddPrescriptionScreen.routeName, page: () => AddPrescriptionScreen(),
+            transition: Transition.downToUp,
+            fullscreenDialog: true,
+          ),
           GetPage(name: InventoryScreen.routeName, page: () => InventoryScreen(),
             transition: Transition.rightToLeftWithFade,
             fullscreenDialog: true,
@@ -120,7 +125,7 @@ class MyApp extends StatelessWidget {
           ),
         ],
 
-        initialRoute: isInfo == false ? InfoScreen.routeName : DrugsScreen.routeName,
+        initialRoute: isInfo == false ? InfoScreen.routeName : AddPrescriptionScreen.routeName,
       );
     }
     )

@@ -43,7 +43,7 @@ class _AddDrugScreenState extends State<AddDrugScreen> {
                 borderRadius: BorderRadius.circular(15).w
             ),
             margin: EdgeInsets.symmetric(
-                vertical: size.height * 0.03, horizontal: size.height * 0.03),
+                vertical: size.height * 0.03, horizontal: size.height * 0.02),
             elevation: 8,
             color: Colors.transparent,
             child: Container(
@@ -84,24 +84,22 @@ class _AddDrugScreenState extends State<AddDrugScreen> {
                     ),
                     Row(
                       children: [
-                        Column(
-                          children: [
-                            Text('Bottle Volume'),
-                            SizedBox(height: size.height *0.015,),
-                            SizedBox(
-                              width: size.width * 0.3,
-                              child: TextFieldWidget(
-                                controller: purchaseController,
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ],
+                        SizedBox(
+                          width: size.width * 0.39,
+                          height: size.height * 0.07,
+                          child: TextFieldWidget(
+                            label: 'bottle selling price',
+                            controller: purchaseController,
+                            keyboardType: TextInputType.number,
+                          ),
                         ),
                        Spacer(),
                         SizedBox(
-                          width: size.width * 0.3,
+                          width: size.width * 0.39,
+                          height: size.height * 0.08,
                           child: TextFieldWidget(
-                            controller: sellingController,
+                            label: 'bottle volume',
+                            controller: purchaseController,
                             keyboardType: TextInputType.number,
                           ),
                         ),
@@ -130,7 +128,6 @@ class _AddDrugScreenState extends State<AddDrugScreen> {
                             initialDate: selectedDate,
                             firstDate: selectedDate.subtract(Duration(days: 365)),
                             lastDate: selectedDate.add(Duration(days: 365))))!;
-                        if(selectedDate == null)return;
                         dateController.text =DateFormat.yMMMd().format(selectedDate);
                         setState(() {});
                       },

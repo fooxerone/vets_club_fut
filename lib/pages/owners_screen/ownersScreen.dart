@@ -42,6 +42,7 @@ class _OwnersScreenState extends State<OwnersScreen> {
             currentIndex: currentIndex,
             ),
               ListView.separated(
+                padding: EdgeInsets.symmetric(horizontal: size.height * 0.02,vertical: size.height * 0.03),
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: 8,

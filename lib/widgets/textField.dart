@@ -42,6 +42,7 @@ class TextFieldWidget extends StatelessWidget {
       keyboardType: keyboardType,
       maxLines: maxLine,
       minLines: minLine,
+      textAlignVertical: TextAlignVertical.center,
       decoration: InputDecoration(
         hintText: hint,
           suffixIcon: suffix,
