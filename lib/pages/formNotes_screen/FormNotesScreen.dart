@@ -67,7 +67,6 @@ class _FormNotesScreenState extends State<FormNotesScreen> {
   List<String> Cities = ['Cities 1', 'Cities 2', 'Cities 3', 'Cities 4'];
   late String CitiesSelected = Cities[0].toString();
 
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;

@@ -12,11 +12,11 @@ import 'package:vets_club/pages/addPatient_screen/addPatient_screen.dart';
 import 'package:vets_club/pages/add_drug_screen/add_drug_screen.dart';
 import 'package:vets_club/pages/add_item_process_screen/add_item_process_screen.dart';
 import 'package:vets_club/pages/clinic_home_screen/ClinicHomeScreen.dart';
-import 'package:vets_club/pages/drugs_layout/drugs_layout.dart';
+import 'package:vets_club/pages/drugs_screen/drugs_screen.dart';
 import 'package:vets_club/pages/formNotes_screen/FormNotesScreen.dart';
 import 'package:vets_club/pages/info_screen/information_screen.dart';
 import 'package:vets_club/pages/inventory_screen/inventory_screen.dart';
-import 'package:vets_club/pages/owners_layout/ownersLayout.dart';
+import 'package:vets_club/pages/owners_screen/ownersScreen.dart';
 import 'package:vets_club/pages/package_screen/PackageScreen.dart';
 import 'package:vets_club/pages/patients_layout/patients_layout.dart';
 import 'package:vets_club/pages/prescription_screen/prescription_screen.dart';
@@ -90,11 +90,11 @@ class MyApp extends StatelessWidget {
             transition: Transition.downToUp,
             fullscreenDialog: true,
           ),
-          GetPage(name: OwnersLayout.routeName, page: () => OwnersLayout(),
+          GetPage(name: OwnersScreen.routeName, page: () => OwnersScreen(),
             transition: Transition.rightToLeftWithFade,
             fullscreenDialog: true,
           ),
-          GetPage(name: DrugsLayout.routeName, page: () => DrugsLayout(),
+          GetPage(name: DrugsScreen.routeName, page: () => DrugsScreen(),
             transition: Transition.leftToRightWithFade,
             fullscreenDialog: true,
           ),
@@ -120,7 +120,7 @@ class MyApp extends StatelessWidget {
           ),
         ],
 
-        initialRoute: isInfo == false ? InfoScreen.routeName : FormNotesScreen.routeName,
+        initialRoute: isInfo == false ? InfoScreen.routeName : DrugsScreen.routeName,
       );
     }
     )

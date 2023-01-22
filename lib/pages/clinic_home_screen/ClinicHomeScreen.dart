@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:vets_club/pages/drugs_layout/drugs_layout.dart';
-import 'package:vets_club/pages/owners_layout/ownersLayout.dart';
 import 'package:vets_club/pages/patients_layout/patients_layout.dart';
 import '../../configurations/themes.dart';
-import '../../widgets/arrowBack.dart';
 import '../Items&processes_Layout/Items&processes_Layout.dart';
+import '../drugs_screen/drugs_screen.dart';
+import '../owners_screen/ownersScreen.dart';
+
 
 class ClinicHomeScreen extends StatelessWidget {
   static const String routeName = '/clinicHome';
@@ -74,7 +74,7 @@ class ClinicHomeScreen extends StatelessWidget {
                   InkWell(
                     borderRadius: BorderRadius.circular(20).w,
                     onTap: (){
-                      Get.toNamed(OwnersLayout.routeName);
+                      Get.toNamed(OwnersScreen.routeName);
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -113,7 +113,7 @@ class ClinicHomeScreen extends StatelessWidget {
                   InkWell(
                     borderRadius: BorderRadius.circular(20).w,
                     onTap: (){
-                      Get.toNamed(DrugsLayout.routeName);
+                      Get.toNamed(DrugsScreen.routeName);
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
