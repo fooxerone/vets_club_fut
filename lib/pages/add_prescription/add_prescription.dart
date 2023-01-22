@@ -2,6 +2,8 @@ import 'package:dropdown_button2/custom_dropdown_button2.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vets_club/configurations/pdf.dart';
+import 'package:vets_club/widgets/elevated_btn.dart';
 
 import '../../configurations/themes.dart';
 import '../../widgets/arrowBack.dart';
@@ -412,6 +414,19 @@ class _AddPrescriptionScreenState extends State<AddPrescriptionScreen> {
                   label: 'Qualification',
                   controller: qualifyControl,
                   keyboardType: TextInputType.text),
+              SizedBox(
+                height: size.height * 0.04,
+              ),
+              ElevatedBtn(
+                  title: 'Save',
+                  onPressed: () async {
+                    await createPrescription(
+                        ownerName: nameControl.text,
+                        address: addressControl.text,
+                        phone: phoneControl.text,
+                        animalName: animalNameControl.text,
+                        species: instructionController.text);
+                  })
             ],
           ),
         ),
