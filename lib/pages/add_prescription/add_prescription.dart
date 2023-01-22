@@ -23,6 +23,9 @@ class _AddPrescriptionScreenState extends State<AddPrescriptionScreen> {
   TextEditingController addressControl = TextEditingController();
   TextEditingController estimatedControl = TextEditingController();
   TextEditingController dosageControl = TextEditingController();
+  TextEditingController warningControl = TextEditingController();
+  TextEditingController drNameControl = TextEditingController();
+  TextEditingController qualifyControl = TextEditingController();
   TextEditingController searchDrugsController = TextEditingController();
   List<String> estimatedDose = [
     'ml',
@@ -54,7 +57,6 @@ class _AddPrescriptionScreenState extends State<AddPrescriptionScreen> {
   String? selectedFrequency;
   String? selectedDosage;
   final List<String> items = [
-    'Select Drug',
     'A_Item1',
     'A_Item2',
     'A_Item3',
@@ -108,139 +110,6 @@ class _AddPrescriptionScreenState extends State<AddPrescriptionScreen> {
               SizedBox(
                 height: size.height * 0.03,
               ),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(size.height * 0.01),
-                decoration: BoxDecoration(
-                    color: MyTheme.lightBlue,
-                    borderRadius: BorderRadius.circular(20).w,
-                    border: Border.fromBorderSide(
-                        BorderSide(color: MyTheme.boldBlue))),
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton2(
-                    isExpanded: true,
-                    hint: Align(
-                      alignment: AlignmentDirectional.center,
-                      child: Text('Select Items',
-                          style: Theme.of(context).textTheme.bodySmall),
-                    ),
-                    items: items.map((item) {
-                      return DropdownMenuItem<String>(
-                        value: item,
-                        //disable default onTap to avoid closing menu when selecting an item
-                        enabled: false,
-                        child: StatefulBuilder(
-                          builder: (context, menuSetState) {
-                            final _isSelected = selectedValue.contains(item);
-                            return InkWell(
-                              onTap: () {
-                                _isSelected
-                                    ? selectedValue.remove(item)
-                                    : selectedValue.add(item);
-                                //This rebuilds the StatefulWidget to update the button's text
-                                setState(() {});
-                                //This rebuilds the dropdownMenu Widget to update the check mark
-                                menuSetState(() {});
-                              },
-                              child: Container(
-                                height: double.infinity,
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 16.0),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        _isSelected
-                                            ? const Icon(
-                                                Icons.check_box_outlined)
-                                            : const Icon(
-                                                Icons.check_box_outline_blank),
-                                        const SizedBox(width: 16),
-                                        Text(
-                                          item,
-                                          style: const TextStyle(
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      );
-                    }).toList(),
-                    //Use last selected item as the current value so if we've limited menu height, it scroll to last item.
-                    value: selectedValue.isEmpty ? null : selectedValue.last,
-                    onChanged: (value) {},
-                    buttonHeight: 40,
-                    buttonWidth: 140,
-                    itemHeight: 40,
-                    itemPadding: EdgeInsets.zero,
-                    selectedItemBuilder: (context) {
-                      return items.map(
-                        (item) {
-                          return Container(
-                            alignment: AlignmentDirectional.center,
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 16.0),
-                            child: Text(
-                              selectedValue.join(', '),
-                              style: const TextStyle(
-                                fontSize: 14,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              maxLines: 1,
-                            ),
-                          );
-                        },
-                      ).toList();
-                    },
-                    searchController: searchDrugsController,
-                    searchInnerWidget: Padding(
-                      padding: const EdgeInsets.only(
-                        top: 8,
-                        bottom: 4,
-                        right: 8,
-                        left: 8,
-                      ),
-                      child: TextFormField(
-                        controller: searchDrugsController,
-                        decoration: InputDecoration(
-                          isDense: true,
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 8,
-                          ),
-                          hintText: 'Search for an item...',
-                          hintStyle: const TextStyle(fontSize: 12),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                      ),
-                    ),
-                    dropdownDecoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      color: MyTheme.lightBlue,
-                    ),
-                    searchMatchFn: (item, searchValue) {
-                      return (item.value.toString().contains(searchValue));
-                    },
-                    //This to clear the search value when you close the menu
-                    onMenuStateChange: (isOpen) {
-                      if (!isOpen) {
-                        searchDrugsController.clear();
-                      }
-                    },
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.03,
-              ),
               Wrap(
                 children: [
                   Container(
@@ -254,7 +123,144 @@ class _AddPrescriptionScreenState extends State<AddPrescriptionScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Dosage'),
+                        Container(
+                          width: double.infinity,
+                          padding: EdgeInsets.all(size.height * 0.01),
+                          decoration: BoxDecoration(
+                              color: MyTheme.lightBlue,
+                              borderRadius: BorderRadius.circular(15).w,
+                              border: Border.fromBorderSide(
+                                  BorderSide(color: MyTheme.boldBlue))),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton2(
+                              isExpanded: true,
+                              hint: Align(
+                                alignment: AlignmentDirectional.center,
+                                child: Text('Select Drugs',
+                                    style:
+                                        Theme.of(context).textTheme.bodySmall),
+                              ),
+                              items: items.map((item) {
+                                return DropdownMenuItem<String>(
+                                  value: item,
+                                  enabled: false,
+                                  child: StatefulBuilder(
+                                    builder: (context, menuSetState) {
+                                      final isSelected =
+                                          selectedValue.contains(item);
+                                      return InkWell(
+                                        onTap: () {
+                                          isSelected
+                                              ? selectedValue.remove(item)
+                                              : selectedValue.add(item);
+                                          setState(() {});
+                                          menuSetState(() {});
+                                        },
+                                        child: Container(
+                                          height: double.infinity,
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: size.height * 0.01),
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  isSelected
+                                                      ? const Icon(Icons
+                                                          .check_box_outlined)
+                                                      : const Icon(Icons
+                                                          .check_box_outline_blank),
+                                                  SizedBox(
+                                                      width: size.width * 0.01),
+                                                  Text(
+                                                    item,
+                                                    style: TextStyle(
+                                                      fontSize: 14.sp,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                );
+                              }).toList(),
+                              scrollbarAlwaysShow: true,
+                              value: selectedValue.isEmpty
+                                  ? null
+                                  : selectedValue.last,
+                              onChanged: (value) {},
+                              buttonHeight: 40.h,
+                              buttonWidth: 140.w,
+                              itemHeight: 40.h,
+                              itemPadding: EdgeInsets.zero,
+                              selectedItemBuilder: (context) {
+                                return items.map(
+                                  (item) {
+                                    return Container(
+                                      alignment: AlignmentDirectional.center,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: size.height * 0.01),
+                                      child: Text(
+                                        selectedValue.join(','),
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                        maxLines: 1,
+                                      ),
+                                    );
+                                  },
+                                ).toList();
+                              },
+                              searchController: searchDrugsController,
+                              searchInnerWidget: Padding(
+                                padding: EdgeInsets.all(size.height * 0.01),
+                                child: TextFormField(
+                                  controller: searchDrugsController,
+                                  decoration: InputDecoration(
+                                    isDense: true,
+                                    contentPadding:
+                                        EdgeInsets.all(size.height * 0.01),
+                                    hintText: 'Search for an item...',
+                                    hintStyle: TextStyle(fontSize: 12.sp),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8).w,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              dropdownDecoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(14).w,
+                                color: MyTheme.lightBlue,
+                              ),
+                              searchMatchFn: (item, searchValue) {
+                                return (item.value
+                                    .toString()
+                                    .contains(searchValue));
+                              },
+                              onMenuStateChange: (isOpen) {
+                                if (!isOpen) {
+                                  searchDrugsController.clear();
+                                }
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: size.height * 0.02,
+                        ),
+                        Text(
+                          'Dosage',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(
+                                fontSize: 20.sp,
+                              ),
+                        ),
                         SizedBox(
                           height: size.height * 0.015,
                         ),
@@ -378,8 +384,33 @@ class _AddPrescriptionScreenState extends State<AddPrescriptionScreen> {
                 height: size.height * 0.03,
               ),
               TextFieldWidget(
+                  minLine: 1,
+                  maxLine: 10,
                   label: 'Instructions',
                   controller: instructionController,
+                  keyboardType: TextInputType.text),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
+              TextFieldWidget(
+                  minLine: 1,
+                  maxLine: 10,
+                  label: 'Warnings',
+                  controller: warningControl,
+                  keyboardType: TextInputType.text),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
+              TextFieldWidget(
+                  label: 'Doctor Name',
+                  controller: drNameControl,
+                  keyboardType: TextInputType.text),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
+              TextFieldWidget(
+                  label: 'Qualification',
+                  controller: qualifyControl,
                   keyboardType: TextInputType.text),
             ],
           ),
