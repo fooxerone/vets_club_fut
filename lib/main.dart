@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vets_club/configurations/themes.dart';
@@ -11,7 +12,6 @@ import 'package:vets_club/pages/Register_Screen/RegisterScreenViewModel.dart';
 import 'package:vets_club/pages/addPatient_screen/addPatient_screen.dart';
 import 'package:vets_club/pages/add_drug_screen/add_drug_screen.dart';
 import 'package:vets_club/pages/add_item_process_screen/add_item_process_screen.dart';
-import 'package:vets_club/pages/add_prescription/add_prescription.dart';
 import 'package:vets_club/pages/clinic_home_screen/ClinicHomeScreen.dart';
 import 'package:vets_club/pages/drugs_screen/drugs_screen.dart';
 import 'package:vets_club/pages/formNotes_screen/FormNotesScreen.dart';
@@ -21,14 +21,14 @@ import 'package:vets_club/pages/owners_screen/ownersScreen.dart';
 import 'package:vets_club/pages/package_screen/PackageScreen.dart';
 import 'package:vets_club/pages/patients_layout/patients_layout.dart';
 import 'package:vets_club/pages/prescription_screen/prescription_screen.dart';
-import 'package:get/get.dart';
 
+import 'pages/add_prescription/add_prescription.dart';
 
-void main()async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool? isInfo = prefs.getBool('onBoard');
-  runApp( MyApp(isInfo??false));
+  runApp(MyApp(isInfo ?? false));
 }
 
 class MyApp extends StatelessWidget {
@@ -109,24 +109,31 @@ class MyApp extends StatelessWidget {
           ),
           GetPage(name: AddDrugScreen.routeName, page: () => AddDrugScreen(),
             transition: Transition.downToUp,
-            fullscreenDialog: true,
-          ),
-          GetPage(name: AddPrescriptionScreen.routeName, page: () => AddPrescriptionScreen(),
-            transition: Transition.downToUp,
-            fullscreenDialog: true,
-          ),
-          GetPage(name: InventoryScreen.routeName, page: () => InventoryScreen(),
-            transition: Transition.rightToLeftWithFade,
-            fullscreenDialog: true,
-          ),
-          GetPage(name: PrescriptionScreen.routeName, page: () => PrescriptionScreen(),
-            transition: Transition.rightToLeftWithFade,
-            fullscreenDialog: true,
-          ),
-        ],
-
-        initialRoute: isInfo == false ? InfoScreen.routeName : AddPrescriptionScreen.routeName,
-      );
+                    fullscreenDialog: true,
+                  ),
+                  GetPage(
+                    name: InventoryScreen.routeName,
+                    page: () => InventoryScreen(),
+                    transition: Transition.rightToLeftWithFade,
+                    fullscreenDialog: true,
+                  ),
+                  GetPage(
+                    name: PrescriptionScreen.routeName,
+                    page: () => PrescriptionScreen(),
+                    transition: Transition.rightToLeftWithFade,
+                    fullscreenDialog: true,
+                  ),
+                  GetPage(
+                    name: AddPrescriptionScreen.routeName,
+                    page: () => AddPrescriptionScreen(),
+                    transition: Transition.rightToLeftWithFade,
+                    fullscreenDialog: true,
+                  ),
+                ],
+                initialRoute: isInfo == false
+                    ? InfoScreen.routeName
+                    : AddPrescriptionScreen.routeName,
+              );
     }
     )
     );

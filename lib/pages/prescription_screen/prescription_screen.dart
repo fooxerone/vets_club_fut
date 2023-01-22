@@ -5,22 +5,39 @@ import 'package:vets_club/widgets/arrowBack.dart';
 
 import '../../widgets/textField.dart';
 
-class PrescriptionScreen extends StatelessWidget {
+class PrescriptionScreen extends StatefulWidget {
   static const String routeName = '/prescription';
 
+  @override
+  State<PrescriptionScreen> createState() => _PrescriptionScreenState();
+}
+
+class _PrescriptionScreenState extends State<PrescriptionScreen> {
   TextEditingController caseNumController = TextEditingController();
+
   TextEditingController instructionController = TextEditingController();
+
   TextEditingController nameControl = TextEditingController();
+
   TextEditingController animalNameControl = TextEditingController();
+
   TextEditingController phoneControl = TextEditingController();
+  TextEditingController searchDrugsController = TextEditingController();
   TextEditingController addressControl = TextEditingController();
+  final List<String> items = [
+    'Item1',
+    'Item2',
+    'Item3',
+    'Item4',
+  ];
+  List<String> selectedItems = [];
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        leading: ArrowBackIcon(() { }),
+        leading: ArrowBackIcon(() {}),
         title: Text('Prescription'),
       ),
       body: SingleChildScrollView(
@@ -63,15 +80,15 @@ class PrescriptionScreen extends StatelessWidget {
                     width: double.infinity,
                     padding: EdgeInsets.all(size.height * 0.01),
                     decoration: BoxDecoration(
-                      color: MyTheme.lightBlue,
-                      borderRadius: BorderRadius.circular(20).w,
-                      border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
+                        color: MyTheme.lightBlue,
+                        borderRadius: BorderRadius.circular(20).w,
+                        border: Border.fromBorderSide(BorderSide(color: MyTheme.boldBlue))
                     ),
                     child: Column(
                       children: [
                         Text('Treatment Plan',
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            color: Colors.black
+                              color: Colors.black
                           ),
                         ),
                       ],
@@ -85,7 +102,9 @@ class PrescriptionScreen extends StatelessWidget {
               TextFieldWidget(
                   label: 'Instructions',
                   controller: instructionController,
-                  keyboardType: TextInputType.text
+                  keyboardType: TextInputType.text),
+              SizedBox(
+                height: size.height * 0.03,
               ),
             ],
           ),
